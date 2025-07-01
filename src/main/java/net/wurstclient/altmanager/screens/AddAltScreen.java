@@ -19,14 +19,14 @@ public final class AddAltScreen extends AltEditorScreen
 	
 	public AddAltScreen(Screen prevScreen, AltManager altManager)
 	{
-		super(prevScreen, Text.literal("New Alt"));
+		super(prevScreen, Text.literal("新账户 "));
 		this.altManager = altManager;
 	}
 	
 	@Override
 	protected String getDoneButtonText()
 	{
-		return getPassword().isEmpty() ? "Add Cracked Alt" : "Add Premium Alt";
+		return getPassword().isEmpty() ? "添加破解账户" : "添加高级账户";
 	}
 	
 	@Override

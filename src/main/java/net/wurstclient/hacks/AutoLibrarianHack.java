@@ -90,7 +90,7 @@ public final class AutoLibrarianHack extends Hack
 	private final UpdateBooksSetting updateBooks = new UpdateBooksSetting();
 	
 	private final SliderSetting range =
-		new SliderSetting("Range", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
+		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final FacingSetting facing = FacingSetting.withoutPacketSpam(
 		"How AutoLibrarian should face the villager and job site.\n\n"

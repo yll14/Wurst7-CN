@@ -19,7 +19,7 @@ public final class FilterBabiesSetting extends EntityFilterCheckbox
 	
 	public FilterBabiesSetting(String description, boolean checked)
 	{
-		super("Filter babies", description + EXCEPTIONS_TEXT, checked);
+		super("过滤幼年", description + EXCEPTIONS_TEXT, checked);
 	}
 	
 	@Override

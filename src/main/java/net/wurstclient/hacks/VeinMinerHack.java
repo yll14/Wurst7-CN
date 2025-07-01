@@ -49,7 +49,7 @@ public final class VeinMinerHack extends Hack
 		new Box(1 / 16.0, 1 / 16.0, 1 / 16.0, 15 / 16.0, 15 / 16.0, 15 / 16.0);
 	
 	private final SliderSetting range =
-		new SliderSetting("Range", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
+		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting flat = new CheckboxSetting("Flat mode",
 		"Won't break any blocks below your feet.", false);
@@ -70,7 +70,7 @@ public final class VeinMinerHack extends Hack
 		ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
-		"Check line of sight",
+		"检查视线",
 		"Makes sure that you don't reach through walls when breaking blocks.",
 		false);
 	

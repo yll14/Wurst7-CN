@@ -47,7 +47,7 @@ import net.wurstclient.util.RotationUtils;
 @SearchTags({"crystal aura"})
 public final class CrystalAuraHack extends Hack implements UpdateListener
 {
-	private final SliderSetting range = new SliderSetting("Range",
+	private final SliderSetting range = new SliderSetting("范围",
 		"Determines how far CrystalAura will reach to place and detonate crystals.",
 		6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
@@ -65,7 +65,7 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 			Facing.OFF);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
-		"Check line of sight",
+		"检查视线",
 		"Ensures that you don't reach through blocks when placing or left-clicking end crystals.\n\n"
 			+ "Slower but can help with anti-cheat plugins.",
 		false);

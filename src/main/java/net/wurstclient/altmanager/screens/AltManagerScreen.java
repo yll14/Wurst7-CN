@@ -256,7 +256,7 @@ public final class AltManagerScreen extends Screen
 			"\"" + altName + "\" 将会永远消失！（很久！）");
 		
 		ConfirmScreen screen = new ConfirmScreen(this::confirmRemove, text,
-			message, Text.literal("D删除 "), Text.literal("取消"));
+			message, Text.literal("删除 "), Text.literal("取消"));
 		client.setScreen(screen);
 	}
 	
@@ -426,8 +426,8 @@ public final class AltManagerScreen extends Screen
 			"" + altManager.getList().size(), width / 2, 14,
 			Colors.LIGHT_GRAY);
 		context.drawCenteredTextWithShadow(
-			textRenderer, "premium: " + altManager.getNumPremium()
-				+ ", cracked: " + altManager.getNumCracked(),
+			textRenderer, "高级：" + altManager.getNumPremium()
+				+ "  破解：" + altManager.getNumCracked(),
 			width / 2, 24, Colors.LIGHT_GRAY);
 		
 		// red flash for errors
@@ -469,22 +469,22 @@ public final class AltManagerScreen extends Screen
 			return;
 		
 		if(alt.isCracked())
-			addTooltip(tooltip, "cracked");
+			addTooltip(tooltip, "破解");
 		else
 		{
-			addTooltip(tooltip, "premium");
+			addTooltip(tooltip, "高级");
 			
 			if(failedLogins.contains(alt))
-				addTooltip(tooltip, "failed");
+				addTooltip(tooltip, "失败");
 			
 			if(alt.isCheckedPremium())
-				addTooltip(tooltip, "checked");
+				addTooltip(tooltip, "检查");
 			else
-				addTooltip(tooltip, "unchecked");
+				addTooltip(tooltip, "未选中");
 		}
 		
 		if(alt.isFavorite())
-			addTooltip(tooltip, "favorite");
+			addTooltip(tooltip, "收藏");
 		
 		context.drawTooltip(textRenderer, tooltip, mouseX, mouseY);
 	}
@@ -594,7 +594,7 @@ public final class AltManagerScreen extends Screen
 			TextRenderer tr = client.textRenderer;
 			
 			// name / email
-			context.drawText(tr, "Name: " + alt.getDisplayName(), x + 31, y + 3,
+			context.drawText(tr, "昵称：" + alt.getDisplayName(), x + 31, y + 3,
 				Colors.LIGHT_GRAY, false);
 			
 			// status
@@ -604,15 +604,15 @@ public final class AltManagerScreen extends Screen
 		
 		private String getBottomText()
 		{
-			String text = alt.isCracked() ? "\u00a78cracked" : "\u00a72premium";
+			String text = alt.isCracked() ? "\u00a78破解" : "\u00a72高级";
 			
 			if(alt.isFavorite())
-				text += "\u00a7r, \u00a7efavorite";
-			
+				text += "\u00a7r, \u00a7e收藏 ";
+
 			if(failedLogins.contains(alt))
-				text += "\u00a7r, \u00a7cwrong password?";
+				text += "\u00a7r, \u00a7c密码错误？";
 			else if(alt.isUncheckedPremium())
-				text += "\u00a7r, \u00a7cunchecked";
+				text += "\u00a7r, \u00a7c未选中";
 			
 			return text;
 		}

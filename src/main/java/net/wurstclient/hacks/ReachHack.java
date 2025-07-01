@@ -13,11 +13,11 @@ import net.wurstclient.hack.Hack;
 import net.wurstclient.settings.SliderSetting;
 import net.wurstclient.settings.SliderSetting.ValueDisplay;
 
-@SearchTags({"range"})
+@SearchTags({"范围"})
 public final class ReachHack extends Hack
 {
 	private final SliderSetting range =
-		new SliderSetting("Range", 6, 1, 10, 0.05, ValueDisplay.DECIMAL);
+		new SliderSetting("范围", 6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	public ReachHack()
 	{

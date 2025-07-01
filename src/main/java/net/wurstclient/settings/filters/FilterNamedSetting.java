@@ -13,7 +13,7 @@ public final class FilterNamedSetting extends EntityFilterCheckbox
 {
 	public FilterNamedSetting(String description, boolean checked)
 	{
-		super("Filter named", description, checked);
+		super("过滤重命名", description, checked);
 	}
 	
 	@Override

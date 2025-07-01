@@ -42,7 +42,7 @@ import net.wurstclient.util.RotationUtils;
 public final class KillauraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
-	private final SliderSetting range = new SliderSetting("Range",
+	private final SliderSetting range = new SliderSetting("范围",
 		"Determines how far Killaura will reach to attack entities.\n"
 			+ "Anything that is further away than the specified value will not be attacked.",
 		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
@@ -81,7 +81,7 @@ public final class KillauraHack extends Hack
 		new PauseAttackOnContainersSetting(true);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("Check line of sight",
+		new CheckboxSetting("检查视线",
 			"Ensures that you don't reach through blocks when attacking.\n\n"
 				+ "Slower but can help with anti-cheat plugins.",
 			false);

@@ -13,7 +13,7 @@ public final class FilterInvisibleSetting extends EntityFilterCheckbox
 {
 	public FilterInvisibleSetting(String description, boolean checked)
 	{
-		super("Filter invisible", description, checked);
+		super("过滤不可见", description, checked);
 	}
 	
 	@Override

@@ -37,7 +37,7 @@ import net.wurstclient.util.RotationUtils;
 	"auto hoe"})
 public final class TillauraHack extends Hack implements HandleInputListener
 {
-	private final SliderSetting range = new SliderSetting("Range",
+	private final SliderSetting range = new SliderSetting("范围",
 		"How far Tillaura will reach to till blocks.", 5, 1, 6, 0.05,
 		ValueDisplay.DECIMAL);
 	
@@ -46,7 +46,7 @@ public final class TillauraHack extends Hack implements HandleInputListener
 			+ "Faster, but can't bypass NoCheat+.", false);
 	
 	private final CheckboxSetting checkLOS =
-		new CheckboxSetting("Check line of sight",
+		new CheckboxSetting("检查视线",
 			"Prevents Tillaura from reaching through blocks.\n"
 				+ "Good for NoCheat+ servers, but unnecessary in vanilla.",
 			true);

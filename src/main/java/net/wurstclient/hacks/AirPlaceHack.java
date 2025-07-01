@@ -32,12 +32,12 @@ public final class AirPlaceHack extends Hack
 	implements RightClickListener, UpdateListener, RenderListener
 {
 	private final SliderSetting range =
-		new SliderSetting("Range", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
+		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private final CheckboxSetting guide = new CheckboxSetting("Guide",
+	private final CheckboxSetting guide = new CheckboxSetting("位置标记",
 		"description.wurst.setting.airplace.guide", true);
 	
-	private final ColorSetting guideColor = new ColorSetting("Guide color",
+	private final ColorSetting guideColor = new ColorSetting("标记颜色",
 		"description.wurst.setting.airplace.guide_color", Color.RED);
 	
 	private BlockPos renderPos;

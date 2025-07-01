@@ -76,7 +76,7 @@ public class DisconnectedScreenMixin extends Screen
 	private void addReconnectButtons()
 	{
 		ButtonWidget reconnectButton = grid.add(ButtonWidget
-			.builder(Text.literal("Reconnect"),
+			.builder(Text.literal("重新连接"),
 				b -> LastServerRememberer.reconnect(parent))
 			.width(200).build());
 		
@@ -117,7 +117,7 @@ public class DisconnectedScreenMixin extends Screen
 		
 		if(!autoReconnect.isEnabled())
 		{
-			autoReconnectButton.setMessage(Text.literal("AutoReconnect"));
+			autoReconnectButton.setMessage(Text.literal("自动重连"));
 			return;
 		}
 		

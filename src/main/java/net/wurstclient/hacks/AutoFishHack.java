@@ -36,16 +36,11 @@ public final class AutoFishHack extends Hack
 	implements UpdateListener, PacketInputListener, RenderListener
 {
 	private final EnumSetting<AutoFishHack.BiteMode> biteMode =
-		new EnumSetting<>("Bite mode",
-			"\u00a7lSound\u00a7r mode detects bites by listening for the bite sound."
-				+ " This method is less accurate, but is more resilient against"
-				+ " anti-cheats. See the \"Valid range\" setting.\n\n"
-				+ "\u00a7lEntity\u00a7r mode detects bites by checking for the"
-				+ " fishing hook's entity update packet. It's more accurate than"
-				+ " the sound method, but is less resilient against anti-cheats.",
+		new EnumSetting<>("咬钩模式",
+					"\u00a7lSound\u00a7r模式通过聆听咬合声来检测咬伤。这种方法不太准确，但对反作弊更有弹性。请参阅\"有效范围\"设置\n\n\u00a7lEntity\u00a7r模式通过检查鱼钩的实体更新数据包来检测咬伤。它比声音方法更准确，但对反作弊的弹性较差",
 			AutoFishHack.BiteMode.values(), AutoFishHack.BiteMode.SOUND);
 	
-	private final SliderSetting validRange = new SliderSetting("Valid range",
+	private final SliderSetting validRange = new SliderSetting("有效范围",
 		"Any bites that occur outside of this range will be ignored.\n\n"
 			+ "Increase your range if bites are not being detected, decrease it"
 			+ " if other people's bites are being detected as yours.\n\n"

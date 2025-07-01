@@ -77,7 +77,7 @@ public class WurstOptionsScreen extends Screen
 			b -> plausible.setEnabled(!plausible.isEnabled()));
 		
 		new WurstOptionsButton(-154, 72,
-			() -> "恶搞原版："
+			() -> "客户端欺骗："
 				+ (vanillaSpoofOtf.isEnabled() ? "开启" : "关闭"),
 			vanillaSpoofOtf.getDescription(),
 			b -> vanillaSpoofOtf.doPrimaryAction());
@@ -100,7 +100,7 @@ public class WurstOptionsScreen extends Screen
 			"管理 X-Ray 透视的方块",
 			b -> xRayHack.openBlockListEditor(this));
 		
-		new WurstOptionsButton(-50, 72, () -> "Zoom",
+		new WurstOptionsButton(-50, 72, () -> "缩放",
 			"缩放管理器允许您更改缩放键及其放大距离",
 			b -> client.setScreen(new ZoomManagerScreen(this)));
 	}
@@ -109,7 +109,7 @@ public class WurstOptionsScreen extends Screen
 	{
 		OperatingSystem os = Util.getOperatingSystem();
 		
-		new WurstOptionsButton(54, 24, () -> "Official 网站",
+		new WurstOptionsButton(54, 24, () -> "官方网站",
 			"§n§lWurstClient.net",
 			b -> os.open("https://www.wurstclient.net/options-website/"));
 		
@@ -122,9 +122,9 @@ public class WurstOptionsScreen extends Screen
 		new WurstOptionsButton(54, 96, () -> "推特", "@Wurst_Imperium",
 			b -> os.open("https://www.wurstclient.net/options-twitter/"));
 		
-		new WurstOptionsButton(54, 120, () -> "捐赠",
-			"§n§lWurstClient.net/donate",
-			b -> os.open("https://www.wurstclient.net/options-donate/"));
+		new WurstOptionsButton(54, 120, () -> "汉化地址",
+			"§n§lGitHub",
+			b -> os.open("https://github.com/axxecc/Wurst7-CN/"));
 	}
 	
 	@Override

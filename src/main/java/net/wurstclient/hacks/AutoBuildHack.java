@@ -39,30 +39,26 @@ public final class AutoBuildHack extends Hack
 	private static final Box BLOCK_BOX =
 		new Box(1 / 16.0, 1 / 16.0, 1 / 16.0, 15 / 16.0, 15 / 16.0, 15 / 16.0);
 	
-	private final FileSetting templateSetting = new FileSetting("Template",
-		"Determines what to build.\n\n"
-			+ "Templates are just JSON files. Feel free to add your own or to edit / delete the default templates.\n\n"
-			+ "If you mess up, simply press the 'Reset to Defaults' button or delete the folder.",
+	private final FileSetting templateSetting = new FileSetting("模板",
+		"确定要构建的内容\n\n模板只是 JSON 文件，请随意添加您自己的模板或编辑/删除默认模板\n\n如果您搞砸了，只需按'重置为默认值'按钮或删除文件夹",
 		"autobuild", DefaultAutoBuildTemplates::createFiles);
 	
-	private final SliderSetting range = new SliderSetting("Range",
-		"How far to reach when placing blocks.\n" + "Recommended values:\n"
-			+ "6.0 for vanilla\n" + "4.25 for NoCheat+",
+	private final SliderSetting range = new SliderSetting("范围",
+		"放置方块时可以到达多远\n建议的值：\n6.0 对于Vanilla\n" + "4.25 对于NoCheat+",
 		6, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
-		"Check line of sight",
-		"Makes sure that you don't reach through walls when placing blocks. Can help with AntiCheat plugins but slows down building.",
+		"检查视线",
+		"确保在放置方块时不要穿过墙壁，可以帮助 AntiCheat 插件，但会减慢建造速度",
 		false);
 	
-	private final CheckboxSetting instaBuild = new CheckboxSetting("InstaBuild",
-		"Builds small templates (<= 64 blocks) instantly.\n"
-			+ "For best results, stand close to the block you're placing.",
+	private final CheckboxSetting instaBuild = new CheckboxSetting("即时建造",
+		"立即建造小模板（<= 64 个块）\n为了获得最佳效果，请站在您要放置的块附近",
 		true);
 	
 	private final CheckboxSetting fastPlace =
-		new CheckboxSetting("Always FastPlace",
-			"Builds as if FastPlace was enabled, even if it's not.", true);
+		new CheckboxSetting("总是快速放置 ",
+			"即使未启用快速放置也会加快放置速度", true);
 	
 	private Status status = Status.NO_TEMPLATE;
 	private AutoBuildTemplate template;
@@ -90,7 +86,7 @@ public final class AutoBuildHack extends Hack
 			break;
 			
 			case LOADING:
-			name += " [Loading...]";
+			name += " [加载中...]";
 			break;
 			
 			case IDLE:
@@ -269,7 +265,7 @@ public final class AutoBuildHack extends Hack
 		}catch(IOException | JsonException e)
 		{
 			Path fileName = path.getFileName();
-			ChatUtils.error("Couldn't load template '" + fileName + "'.");
+			ChatUtils.error("无法加载模板 '" + fileName + "'.");
 			
 			String simpleClassName = e.getClass().getSimpleName();
 			String message = e.getMessage();
