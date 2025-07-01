@@ -43,7 +43,7 @@ public class ServerFinderScreen extends Screen
 	
 	public ServerFinderScreen(MultiplayerScreen prevScreen)
 	{
-		super(Text.literal("Server Finder"));
+		super(Text.literal("服务器查找器"));
 		this.prevScreen = prevScreen;
 	}
 	
@@ -51,21 +51,21 @@ public class ServerFinderScreen extends Screen
 	public void init()
 	{
 		addDrawableChild(searchButton =
-			ButtonWidget.builder(Text.literal("Search"), b -> searchOrCancel())
+			ButtonWidget.builder(Text.literal("搜索"), b -> searchOrCancel())
 				.dimensions(width / 2 - 100, height / 4 + 96 + 12, 200, 20)
 				.build());
 		searchButton.active = false;
 		
 		addDrawableChild(
 			ButtonWidget
-				.builder(Text.literal("Tutorial"),
+				.builder(Text.literal("教程"),
 					b -> Util.getOperatingSystem().open(
 						"https://www.wurstclient.net/serverfinder-tutorial/"))
 				.dimensions(width / 2 - 100, height / 4 + 120 + 12, 200, 20)
 				.build());
 		
 		addDrawableChild(
-			ButtonWidget.builder(Text.literal("Back"), b -> close())
+			ButtonWidget.builder(Text.literal("返回"), b -> close())
 				.dimensions(width / 2 - 100, height / 4 + 144 + 12, 200, 20)
 				.build());
 		
@@ -91,7 +91,7 @@ public class ServerFinderScreen extends Screen
 			state = ServerFinderState.CANCELLED;
 			ipBox.active = true;
 			maxThreadsBox.active = true;
-			searchButton.setMessage(Text.literal("Search"));
+			searchButton.setMessage(Text.literal("搜索"));
 			return;
 		}
 		
@@ -99,11 +99,11 @@ public class ServerFinderScreen extends Screen
 		maxThreads = Integer.parseInt(maxThreadsBox.getText());
 		ipBox.active = false;
 		maxThreadsBox.active = false;
-		searchButton.setMessage(Text.literal("Cancel"));
+		searchButton.setMessage(Text.literal("取消"));
 		checked = 0;
 		working = 0;
 		
-		new Thread(this::findServers, "Server Finder").start();
+		new Thread(this::findServers, "服务器查找器").start();
 	}
 	
 	private void findServers()
@@ -234,23 +234,23 @@ public class ServerFinderScreen extends Screen
 	public void render(DrawContext context, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		context.drawCenteredTextWithShadow(textRenderer, "Server Finder",
+		context.drawCenteredTextWithShadow(textRenderer, "服务器查找器",
 			width / 2, 20, 16777215);
 		context.drawCenteredTextWithShadow(textRenderer,
-			"This will search for servers with similar IPs", width / 2, 40,
+			"T他将搜索具有相似 IP 的服务器", width / 2, 40,
 			10526880);
 		context.drawCenteredTextWithShadow(textRenderer,
-			"to the IP you type into the field below.", width / 2, 50,
+			"到您在下面的字段中输入的 IP", width / 2, 50,
 			10526880);
 		context.drawCenteredTextWithShadow(textRenderer,
-			"The servers it finds will be added to your server list.",
+			"它找到的服务器将添加到您的服务器列表中",
 			width / 2, 60, 10526880);
 		
-		context.drawTextWithShadow(textRenderer, "Server address:",
+		context.drawTextWithShadow(textRenderer, "服务器地址：",
 			width / 2 - 100, height / 4 + 24, 10526880);
 		ipBox.render(context, mouseX, mouseY, partialTicks);
 		
-		context.drawTextWithShadow(textRenderer, "Max. threads:",
+		context.drawTextWithShadow(textRenderer, "最大线程数：",
 			width / 2 - 100, height / 4 + 60, 10526880);
 		maxThreadsBox.render(context, mouseX, mouseY, partialTicks);
 		
@@ -258,9 +258,9 @@ public class ServerFinderScreen extends Screen
 			width / 2, height / 4 + 73, 10526880);
 		
 		context.drawTextWithShadow(textRenderer,
-			"Checked: " + checked + " / 1792", width / 2 - 100, height / 4 + 84,
+			"检查中：" + checked + " / 1792", width / 2 - 100, height / 4 + 84,
 			10526880);
-		context.drawTextWithShadow(textRenderer, "Working: " + working,
+		context.drawTextWithShadow(textRenderer, "工作中：" + working,
 			width / 2 - 100, height / 4 + 94, 10526880);
 		
 		for(Drawable drawable : drawables)
@@ -277,12 +277,12 @@ public class ServerFinderScreen extends Screen
 	enum ServerFinderState
 	{
 		NOT_RUNNING(""),
-		SEARCHING("\u00a72Searching..."),
+		SEARCHING("\u00a72搜索中..."),
 		RESOLVING("\u00a72Resolving..."),
-		UNKNOWN_HOST("\u00a74Unknown Host!"),
-		CANCELLED("\u00a74Cancelled!"),
-		DONE("\u00a72Done!"),
-		ERROR("\u00a74An error occurred!");
+		UNKNOWN_HOST("\u00a74U未知主机！"),
+		CANCELLED("\u00a74取消！"),
+		DONE("\u00a72完成！"),
+		ERROR("\u00a74发生错误！");
 		
 		private final String name;
 		
