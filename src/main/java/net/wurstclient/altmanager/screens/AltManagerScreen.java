@@ -77,7 +77,7 @@ public final class AltManagerScreen extends Screen
 	
 	public AltManagerScreen(Screen prevScreen, AltManager altManager)
 	{
-		super(Text.literal("Alt Manager"));
+		super(Text.literal("离线账户管理"));
 		this.prevScreen = prevScreen;
 		this.altManager = altManager;
 	}
