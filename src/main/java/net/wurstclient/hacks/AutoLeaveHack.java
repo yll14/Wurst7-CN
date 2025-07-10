@@ -24,33 +24,22 @@ import net.wurstclient.util.InventoryUtils;
 	"auto quit"})
 public final class AutoLeaveHack extends Hack implements UpdateListener
 {
-	private final SliderSetting health = new SliderSetting("Health",
-		"Leaves the server when your health reaches this value or falls below it.",
-		4, 0.5, 9.5, 0.5, ValueDisplay.DECIMAL.withSuffix(" hearts"));
+	private final SliderSetting health = new SliderSetting("血量",
+		"当您的生命值达到或低于该值时离开服务器",
+		4, 0.5, 9.5, 0.5, ValueDisplay.DECIMAL.withSuffix(" 心"));
 	
-	public final EnumSetting<Mode> mode = new EnumSetting<>("Mode",
-		"\u00a7lQuit\u00a7r mode just quits the game normally.\n"
-			+ "Bypasses NoCheat+ but not CombatLog.\n\n"
-			+ "\u00a7lChars\u00a7r mode sends a special chat message that"
-			+ " causes the server to kick you.\n"
-			+ "Bypasses NoCheat+ and some versions of CombatLog.\n\n"
-			+ "\u00a7lSelfHurt\u00a7r mode sends the packet for attacking"
-			+ " another player, but with yourself as both the attacker and the"
-			+ " target, causing the server to kick you.\n"
-			+ "Bypasses both CombatLog and NoCheat+.",
+	public final EnumSetting<Mode> mode = new EnumSetting<>("模式",
+		"\u00a7l退出\u00a7r 模式会正常退出游戏\n\n\u00a7l字符\u00a7r 模式会发送一条特殊的聊天消息\n\n\u00a7l自残\u00a7r 模式会攻击自己导致服务器踢出",
 		Mode.values(), Mode.QUIT);
 	
 	private final CheckboxSetting disableAutoReconnect = new CheckboxSetting(
-		"Disable AutoReconnect", "Automatically turns off AutoReconnect when"
-			+ " AutoLeave makes you leave the server.",
+		"禁用自动重连", "自动关闭自动重连",
 		true);
 	
-	private final SliderSetting totems = new SliderSetting("Totems",
-		"Won't leave the server until the number of totems you have reaches"
-			+ " this value or falls below it.\n\n"
-			+ "11 = always able to leave",
-		11, 0, 11, 1, ValueDisplay.INTEGER.withSuffix(" totems")
-			.withLabel(1, "1 totem").withLabel(11, "ignore"));
+	private final SliderSetting totems = new SliderSetting("图腾",
+		"当你拥有的图腾数量达到或低于此值才会离开服务器",
+		11, 0, 11, 1, ValueDisplay.INTEGER.withSuffix(" 图腾")
+			.withLabel(1, "1 图腾").withLabel(11, "忽略"));
 	
 	public AutoLeaveHack()
 	{
@@ -112,12 +101,12 @@ public final class AutoLeaveHack extends Hack implements UpdateListener
 	
 	public static enum Mode
 	{
-		QUIT("Quit",
+		QUIT("退出",
 			() -> MC.world.disconnect(ClientWorld.QUITTING_MULTIPLAYER_TEXT)),
 		
-		CHARS("Chars", () -> MC.getNetworkHandler().sendChatMessage("\u00a7")),
+		CHARS("字符", () -> MC.getNetworkHandler().sendChatMessage("\u00a7")),
 		
-		SELFHURT("SelfHurt",
+		SELFHURT("自残",
 			() -> MC.getNetworkHandler()
 				.sendPacket(PlayerInteractEntityC2SPacket.attack(MC.player,
 					MC.player.isSneaking())));

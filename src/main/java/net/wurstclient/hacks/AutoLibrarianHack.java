@@ -64,7 +64,7 @@ public final class AutoLibrarianHack extends Hack
 	implements UpdateListener, RenderListener
 {
 	private final BookOffersSetting wantedBooks = new BookOffersSetting(
-		"Wanted books",
+		"希望书籍",
 		"A list of enchanted books that you want your villagers to sell.\n\n"
 			+ "AutoLibrarian will stop training the current villager"
 			+ " once it has learned to sell one of these books.\n\n"

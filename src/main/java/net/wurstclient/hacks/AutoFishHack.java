@@ -37,29 +37,25 @@ public final class AutoFishHack extends Hack
 {
 	private final EnumSetting<AutoFishHack.BiteMode> biteMode =
 		new EnumSetting<>("咬钩模式",
-					"\u00a7lSound\u00a7r模式通过聆听咬合声来检测咬伤。这种方法不太准确，但对反作弊更有弹性。请参阅\"有效范围\"设置\n\n\u00a7lEntity\u00a7r模式通过检查鱼钩的实体更新数据包来检测咬伤。它比声音方法更准确，但对反作弊的弹性较差",
+					"\u00a7l声音\u00a7r 模式通过聆听咬钩声来检测咬钩\n\n\u00a7l实体\u00a7r 模式通过检查鱼钩的实体更新数据包来检测咬钩",
 			AutoFishHack.BiteMode.values(), AutoFishHack.BiteMode.SOUND);
 	
 	private final SliderSetting validRange = new SliderSetting("有效范围",
-		"Any bites that occur outside of this range will be ignored.\n\n"
-			+ "Increase your range if bites are not being detected, decrease it"
-			+ " if other people's bites are being detected as yours.\n\n"
-			+ "This setting has no effect when \"Bite mode\" is set to \"Entity\".",
+		"任何超出此范围的咬合都将被忽略\n\n如果未检测到咬钩，则增加您的范围；如果将其他人的咬钩为您的咬钩，则减少范围\n\n当\"咬钩模式\"设置为\u00a7l实体\u00a7r时，此设置无效",
 		1.5, 0.25, 8, 0.25, ValueDisplay.DECIMAL);
 	
-	private final SliderSetting catchDelay = new SliderSetting("Catch delay",
-		"How long AutoFish will wait after a bite before reeling in.", 0, 0, 60,
-		1, ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
+	private final SliderSetting catchDelay = new SliderSetting("捕获延迟",
+		"自动鱼咬钩后要等多久才会收线", 0, 0, 60,
+		1, ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 Tick"));
 	
-	private final SliderSetting retryDelay = new SliderSetting("Retry delay",
-		"If casting or reeling in the fishing rod fails, this is how long"
-			+ " AutoFish will wait before trying again.",
+	private final SliderSetting retryDelay = new SliderSetting("重试延迟",
+		"如果抛竿或收竿失败，自动钓鱼将等待以下时间后再尝试重试",
 		15, 0, 100, 1,
-		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
+		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 Tick"));
 	
-	private final SliderSetting patience = new SliderSetting("Patience",
-		"How long AutoFish will wait if it doesn't get a bite before reeling in.",
-		60, 10, 120, 1, ValueDisplay.INTEGER.withSuffix("s"));
+	private final SliderSetting patience = new SliderSetting("耐心",
+		"如果自动钓鱼没有钓到鱼，它会等待多久才收线",
+		60, 10, 120, 1, ValueDisplay.INTEGER.withSuffix("S"));
 	
 	private final ShallowWaterWarningCheckbox shallowWaterWarning =
 		new ShallowWaterWarningCheckbox();
@@ -93,7 +89,7 @@ public final class AutoFishHack extends Hack
 	public String getRenderName()
 	{
 		if(rodSelector.isOutOfRods())
-			return getName() + " [out of rods]";
+			return getName() + " [钓竿用完了]";
 		
 		return getName();
 	}
@@ -250,8 +246,8 @@ public final class AutoFishHack extends Hack
 	
 	private enum BiteMode
 	{
-		SOUND("Sound"),
-		ENTITY("Entity");
+		SOUND("声音"),
+		ENTITY("实体");
 		
 		private final String name;
 		

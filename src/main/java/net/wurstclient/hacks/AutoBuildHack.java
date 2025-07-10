@@ -40,7 +40,7 @@ public final class AutoBuildHack extends Hack
 		new Box(1 / 16.0, 1 / 16.0, 1 / 16.0, 15 / 16.0, 15 / 16.0, 15 / 16.0);
 	
 	private final FileSetting templateSetting = new FileSetting("模板",
-		"确定要构建的内容\n\n模板只是 JSON 文件，请随意添加您自己的模板或编辑/删除默认模板\n\n如果您搞砸了，只需按'重置为默认值'按钮或删除文件夹",
+		"确定要构建的内容\n\n模板只是 JSON 文件，请随意添加您自己的模板或编辑/删除默认模板\n\n'重置为默认值'按钮或删除文件夹",
 		"autobuild", DefaultAutoBuildTemplates::createFiles);
 	
 	private final SliderSetting range = new SliderSetting("范围",

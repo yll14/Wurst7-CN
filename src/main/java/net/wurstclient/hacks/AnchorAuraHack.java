@@ -107,7 +107,7 @@ public final class AnchorAuraHack extends Hack implements UpdateListener
 	{
 		if(MC.world.getDimension().respawnAnchorWorks())
 		{
-			ChatUtils.error("Respawn anchors don't explode in this dimension.");
+			ChatUtils.error("重生锚不会在这个维度爆炸");
 			setEnabled(false);
 		}
 		
@@ -400,9 +400,9 @@ public final class AnchorAuraHack extends Hack implements UpdateListener
 	
 	private enum TakeItemsFrom
 	{
-		HOTBAR("Hotbar", 9),
+		HOTBAR("快捷栏", 9),
 		
-		INVENTORY("Inventory", 36);
+		INVENTORY("背包", 36);
 		
 		private final String name;
 		private final int maxInvSlot;

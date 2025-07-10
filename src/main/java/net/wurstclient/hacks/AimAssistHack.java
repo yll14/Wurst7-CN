@@ -43,7 +43,7 @@ public final class AimAssistHack extends Hack
 			30, 360, 10, ValueDisplay.DEGREES);
 	
 	private final AimAtSetting aimAt = new AimAtSetting(
-		"AimAssist应该瞄准目标碰撞箱的哪个点？");
+		"辅助瞄准应该瞄准目标碰撞箱的哪个点？");
 	
 	private final SliderSetting ignoreMouseInput =
 		new SliderSetting("忽略鼠标输入",

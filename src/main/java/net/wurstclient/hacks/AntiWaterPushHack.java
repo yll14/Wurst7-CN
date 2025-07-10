@@ -20,7 +20,7 @@ public final class AntiWaterPushHack extends Hack implements UpdateListener,
 	VelocityFromFluidListener, IsPlayerInWaterListener
 {
 	private final CheckboxSetting preventSlowdown = new CheckboxSetting(
-		"防止减速", "让你在水下全速行走\n一些服务器认为这是一种速度Hacker",
+		"防止减速", "让你在水下全速行走",
 		false);
 	
 	public AntiWaterPushHack()
