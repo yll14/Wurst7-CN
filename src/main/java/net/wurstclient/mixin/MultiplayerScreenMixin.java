@@ -46,7 +46,7 @@ public class MultiplayerScreenMixin extends Screen implements IMultiplayerScreen
 			return;
 		
 		lastServerButton = addDrawableChild(ButtonWidget
-			.builder(Text.literal("最后的服务器"),
+			.builder(Text.literal("上次的服务器"),
 				b -> LastServerRememberer
 					.joinLastServer((MultiplayerScreen)(Object)this))
 			.dimensions(width / 2 - 154, 10, 100, 20).build());
