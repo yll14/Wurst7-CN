@@ -39,58 +39,42 @@ public final class BuildRandomHack extends Hack
 	private final SliderSetting range =
 		new SliderSetting("范围", 5, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private SliderSetting maxAttempts = new SliderSetting("Max attempts",
-		"Maximum number of random positions that BuildRandom will try to place"
-			+ " a block at in one tick.\n\n"
-			+ "Higher values speed up the building process at the cost of"
-			+ " increased lag.",
+	private SliderSetting maxAttempts = new SliderSetting("最大尝试次数",
+		"随机建造在一次更新中尝试放置块的最大随机位置数\n\n较高的值会加快构建过程，但代价是增加延迟",
 		128, 1, 1024, 1, ValueDisplay.INTEGER);
 	
 	private final CheckboxSetting checkItem =
-		new CheckboxSetting("Check held item",
-			"Only builds when you are actually holding a block.\n"
-				+ "Turn this off to build with fire, water, lava, spawn eggs,"
-				+ " or if you just want to right click with an empty hand"
-				+ " in random places.",
+		new CheckboxSetting("检查保留物品",
+			"仅在您实际持有方块时构建\n关闭此选项以使用火、水、熔岩、刷怪蛋构建，或者如果您只想在随机位置用空手右键单击",
 			true);
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",
-			"Ensure that BuildRandom won't try to place blocks behind walls.",
+			"确保随机建造不会尝试在墙后放置块",
 			false);
 	
 	private final FacingSetting facing = FacingSetting.withoutPacketSpam(
-		"How BuildRandom should face the randomly placed blocks.\n\n"
-			+ "\u00a7lOff\u00a7r - Don't face the blocks at all. Will be"
-			+ " detected by anti-cheat plugins.\n\n"
-			+ "\u00a7lServer-side\u00a7r - Face the blocks on the"
-			+ " server-side, while still letting you move the camera freely on"
-			+ " the client-side.\n\n"
-			+ "\u00a7lClient-side\u00a7r - Face the blocks by moving your"
-			+ " camera on the client-side. This is the most legit option, but"
-			+ " can be VERY disorienting to look at.");
+		"随机建造应该如何面对随机放置的块\n\n\u00a7l关闭\u00a7r - 根本不面对块。将被反作弊插件检测到\n\n\u00a7l服务器\u00a7r - 面对服务器端的障碍，同时仍然允许您在客户端自由移动摄像机\n\n\u00a7l客户端\u00a7r - 通过在客户端移动您的摄像机来面对障碍。这是最合法的选择");
 	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.SERVER);
 	
 	private final CheckboxSetting fastPlace =
-		new CheckboxSetting("Always FastPlace",
-			"Builds as if FastPlace was enabled, even if it's not.", false);
+		new CheckboxSetting("始终快速放置",
+			"即使未启用快速放置，也会像启用快速放置一样建造", false);
 	
 	private final CheckboxSetting placeWhileBreaking = new CheckboxSetting(
-		"Place while breaking",
-		"Builds even while you are breaking a block.\n"
-			+ "Possible with hacks, but wouldn't work in vanilla. May look suspicious.",
+		"破坏时放置",
+		"即使在你打破方块时也能建造\n可以通过 hacks 进行，但在原版中不起作用",
 		false);
 	
 	private final CheckboxSetting placeWhileRiding = new CheckboxSetting(
-		"Place while riding",
-		"Builds even while you are riding a vehicle.\n"
-			+ "Possible with hacks, but wouldn't work in vanilla. May look suspicious.",
+		"骑行时放置",
+		"即使在你骑车时也能建造\n可以通过 hacks 进行，但在原版中不起作用",
 		false);
 	
-	private final CheckboxSetting indicator = new CheckboxSetting("Indicator",
-		"Shows where BuildRandom is placing blocks.", true);
+	private final CheckboxSetting indicator = new CheckboxSetting("指示器",
+		"显示随机建造放置块的位置", true);
 	
 	private final Random random = new Random();
 	private BlockPos lastPos;

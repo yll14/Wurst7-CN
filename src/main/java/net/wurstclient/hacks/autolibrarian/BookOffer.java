@@ -81,7 +81,7 @@ public record BookOffer(String id, int level, int price)
 	
 	public String getFormattedPrice()
 	{
-		return price + " emerald" + (price == 1 ? "" : "s");
+		return price + " 绿宝石";
 	}
 	
 	/**

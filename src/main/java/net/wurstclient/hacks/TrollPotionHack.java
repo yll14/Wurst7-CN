@@ -31,7 +31,7 @@ import net.wurstclient.util.ChatUtils;
 public final class TrollPotionHack extends Hack
 {
 	private final EnumSetting<PotionType> potionType =
-		new EnumSetting<>("Potion type", "The type of potion to generate.",
+		new EnumSetting<>("药水类型", "要生成的药水类型",
 			PotionType.values(), PotionType.SPLASH);
 	
 	public TrollPotionHack()
@@ -47,7 +47,7 @@ public final class TrollPotionHack extends Hack
 		// check gamemode
 		if(!MC.player.getAbilities().creativeMode)
 		{
-			ChatUtils.error("Creative mode only.");
+			ChatUtils.error("仅限创造模式");
 			setEnabled(false);
 			return;
 		}
@@ -57,9 +57,9 @@ public final class TrollPotionHack extends Hack
 		
 		// give potion
 		if(placeStackInHotbar(stack))
-			ChatUtils.message("Potion created.");
+			ChatUtils.message("已创建药水");
 		else
-			ChatUtils.error("Please clear a slot in your hotbar.");
+			ChatUtils.error("请在你的快捷栏中清空一个槽位");
 		
 		setEnabled(false);
 	}
@@ -81,13 +81,13 @@ public final class TrollPotionHack extends Hack
 	
 	private enum PotionType
 	{
-		NORMAL("Normal", "Potion", Items.POTION),
+		NORMAL("正常", "", Items.POTION),
 		
-		SPLASH("Splash", "Splash Potion", Items.SPLASH_POTION),
+		SPLASH("喷溅", "喷溅型", Items.SPLASH_POTION),
 		
-		LINGERING("Lingering", "Lingering Potion", Items.LINGERING_POTION),
+		LINGERING("滞留", "滞留型", Items.LINGERING_POTION),
 		
-		ARROW("Arrow", "Arrow", Items.TIPPED_ARROW);
+		ARROW("箭矢", "箭矢型", Items.TIPPED_ARROW);
 		
 		private final String name;
 		private final String itemName;
@@ -126,7 +126,7 @@ public final class TrollPotionHack extends Hack
 				new PotionContentsComponent(Optional.empty(), Optional.empty(),
 					effects, Optional.empty()));
 			
-			String name = "\u00a7f" + itemName + " of Trolling";
+			String name = "\u00a7f" + itemName + "恼人药水";
 			stack.set(DataComponentTypes.CUSTOM_NAME, Text.literal(name));
 			
 			return stack;

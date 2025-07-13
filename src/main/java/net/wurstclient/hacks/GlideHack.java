@@ -27,19 +27,19 @@ import net.wurstclient.util.BlockUtils;
 public final class GlideHack extends Hack
 	implements UpdateListener, AirStrafingSpeedListener
 {
-	private final SliderSetting fallSpeed = new SliderSetting("Fall speed",
+	private final SliderSetting fallSpeed = new SliderSetting("降落速度",
 		0.125, 0.005, 0.25, 0.005, ValueDisplay.DECIMAL);
 	
 	private final SliderSetting moveSpeed =
-		new SliderSetting("Move speed", "Horizontal movement factor.", 1.2, 1,
+		new SliderSetting("移动速度", "水平移动速度", 1.2, 1,
 			5, 0.05, ValueDisplay.PERCENTAGE);
 	
-	private final SliderSetting minHeight = new SliderSetting("Min height",
-		"Won't glide when you are too close to the ground.", 0, 0, 2, 0.01,
-		ValueDisplay.DECIMAL.withLabel(0, "disabled"));
+	private final SliderSetting minHeight = new SliderSetting("最小高度",
+		"当您离地面太近时不会滑行", 0, 0, 2, 0.01,
+		ValueDisplay.DECIMAL.withLabel(0, "禁用"));
 	
 	private final CheckboxSetting pauseOnSneak =
-		new CheckboxSetting("Pause when sneaking", true);
+		new CheckboxSetting("潜行时暂停", true);
 	
 	public GlideHack()
 	{
@@ -59,7 +59,7 @@ public final class GlideHack extends Hack
 			return getName();
 		
 		if(pauseOnSneak.isChecked() && player.isSneaking())
-			return getName() + " (paused)";
+			return getName() + "（暂停）";
 		
 		return getName();
 	}

@@ -20,20 +20,19 @@ import net.wurstclient.settings.EnumSetting;
 @DontBlock
 public final class WurstLogoOtf extends OtherFeature
 {
-	private final ColorSetting bgColor = new ColorSetting("Background",
-		"Background color.\n"
-			+ "Only visible when \u00a76RainbowUI\u00a7r is disabled.",
+	private final ColorSetting bgColor = new ColorSetting("背景",
+		"背景颜色\n仅在禁用\u00a76RainbowUI\u00a7r时可见",
 		Color.WHITE);
 	
 	private final ColorSetting txtColor =
-		new ColorSetting("Text", "Text color.", Color.BLACK);
+		new ColorSetting("文本", "文本颜色", Color.BLACK);
 	
 	private final EnumSetting<Visibility> visibility =
-		new EnumSetting<>("Visibility", Visibility.values(), Visibility.ALWAYS);
+		new EnumSetting<>("显示", Visibility.values(), Visibility.ALWAYS);
 	
 	public WurstLogoOtf()
 	{
-		super("WurstLogo", "Shows the Wurst logo and version on the screen.");
+		super("Wurst标志", "在屏幕上显示Wurst徽标和版本");
 		addSetting(bgColor);
 		addSetting(txtColor);
 		addSetting(visibility);
@@ -56,9 +55,9 @@ public final class WurstLogoOtf extends OtherFeature
 	
 	public static enum Visibility
 	{
-		ALWAYS("Always", () -> true),
-		
-		ONLY_OUTDATED("Only when outdated",
+		ALWAYS("总是", () -> true),
+
+		ONLY_OUTDATED("有更新时",
 			() -> WURST.getUpdater().isOutdated());
 		
 		private final String name;

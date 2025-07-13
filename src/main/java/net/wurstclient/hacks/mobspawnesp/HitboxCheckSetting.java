@@ -26,7 +26,7 @@ public final class HitboxCheckSetting
 	
 	public HitboxCheckSetting()
 	{
-		super("Hitbox check", DESCRIPTION, HitboxCheck.values(),
+		super("碰撞箱检查", DESCRIPTION, HitboxCheck.values(),
 			HitboxCheck.OFF);
 	}
 	
@@ -61,9 +61,9 @@ public final class HitboxCheckSetting
 	
 	public enum HitboxCheck
 	{
-		OFF("Off", pos -> true),
-		SLOW("Slow", HitboxCheckSetting::slowHitboxCheck),
-		UNSTABLE("Unstable", HitboxCheckSetting::unstableHitboxCheck);
+		OFF("关闭", pos -> true),
+		SLOW("慢速", HitboxCheckSetting::slowHitboxCheck),
+		UNSTABLE("快速", HitboxCheckSetting::unstableHitboxCheck);
 		
 		private static final String TRANSLATION_KEY_PREFIX =
 			"description.wurst.setting.mobspawnesp.hitbox_check.";

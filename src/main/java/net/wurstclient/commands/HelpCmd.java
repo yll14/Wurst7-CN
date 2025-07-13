@@ -57,7 +57,7 @@ public final class HelpCmd extends Command
 		int start = (page - 1) * CMDS_PER_PAGE;
 		int end = Math.min(page * CMDS_PER_PAGE, cmds.size());
 		
-		ChatUtils.message("Command list (page " + page + "/" + pages + ")");
+		ChatUtils.message("命令列表（" + page + "/" + pages + "）");
 		for(int i = start; i < end; i++)
 			ChatUtils.message("- " + cmds.get(i).getName());
 	}
@@ -69,9 +69,9 @@ public final class HelpCmd extends Command
 		
 		Command cmd = WURST.getCmds().getCmdByName(cmdName);
 		if(cmd == null)
-			throw new CmdSyntaxError("Unknown command: ." + cmdName);
+			throw new CmdSyntaxError("未知命令：." + cmdName);
 		
-		ChatUtils.message("Available help for ." + cmdName + ":");
+		ChatUtils.message("可用的帮助 ." + cmdName + "：");
 		cmd.printHelp();
 	}
 }

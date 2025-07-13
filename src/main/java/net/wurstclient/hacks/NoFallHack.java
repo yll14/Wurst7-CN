@@ -20,10 +20,10 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class NoFallHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting allowElytra = new CheckboxSetting(
-		"Allow elytra", "description.wurst.setting.nofall.allow_elytra", false);
+		"允许鞘翅", "description.wurst.setting.nofall.allow_elytra", false);
 	
 	private final CheckboxSetting pauseForMace =
-		new CheckboxSetting("Pause for mace",
+		new CheckboxSetting("暂停使用重锤",
 			"description.wurst.setting.nofall.pause_for_mace", false);
 	
 	public NoFallHack()
@@ -42,13 +42,13 @@ public final class NoFallHack extends Hack implements UpdateListener
 			return getName();
 		
 		if(player.isGliding() && !allowElytra.isChecked())
-			return getName() + " (paused)";
+			return getName() + "（暂停）";
 		
 		if(player.getAbilities().creativeMode)
-			return getName() + " (paused)";
+			return getName() + "（暂停）";
 		
 		if(pauseForMace.isChecked() && isHoldingMace(player))
-			return getName() + " (paused)";
+			return getName() + "（暂停）";
 		
 		return getName();
 	}

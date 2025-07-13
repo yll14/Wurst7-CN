@@ -36,10 +36,10 @@ public final class RadarHack extends Hack implements UpdateListener
 	private final Window window;
 	private final ArrayList<Entity> entities = new ArrayList<>();
 	
-	private final SliderSetting radius = new SliderSetting("Radius",
-		"Radius in blocks.", 100, 1, 100, 1, ValueDisplay.INTEGER);
+	private final SliderSetting radius = new SliderSetting("半径",
+		"半径（以块为单位）", 100, 1, 100, 1, ValueDisplay.INTEGER);
 	private final CheckboxSetting rotate =
-		new CheckboxSetting("Rotate with player", true);
+		new CheckboxSetting("与玩家一起旋转", true);
 	
 	private final EntityFilterList entityFilters =
 		new EntityFilterList(FilterPlayersSetting.genericVision(false),
@@ -53,14 +53,14 @@ public final class RadarHack extends Hack implements UpdateListener
 	
 	public RadarHack()
 	{
-		super("雷达");
+		super("实体雷达");
 		
 		setCategory(Category.RENDER);
 		addSetting(radius);
 		addSetting(rotate);
 		entityFilters.forEach(this::addSetting);
 		
-		window = new Window("Radar");
+		window = new Window("雷达");
 		window.setPinned(true);
 		window.setInvisible(true);
 		window.add(new RadarComponent(this));

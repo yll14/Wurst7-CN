@@ -50,7 +50,7 @@ public final class ExcavatorHack extends Hack
 		new SliderSetting("范围", 5, 2, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final EnumSetting<Mode> mode =
-		new EnumSetting<>("Mode", Mode.values(), Mode.FAST);
+		new EnumSetting<>("模式", Mode.values(), Mode.FAST);
 	
 	private final OverlayRenderer overlay = new OverlayRenderer();
 	
@@ -63,7 +63,7 @@ public final class ExcavatorHack extends Hack
 	
 	public ExcavatorHack()
 	{
-		super("无差别破坏");
+		super("范围破坏");
 		setCategory(Category.BLOCKS);
 		addSetting(range);
 		addSetting(mode);
@@ -219,7 +219,7 @@ public final class ExcavatorHack extends Hack
 	{
 		String message;
 		if(step.selectPos && step.pos != null)
-			message = "Press enter to confirm, or select a different position.";
+			message = "按 Enter 确认，或选择其他位置";
 		else
 			message = step.message;
 		
@@ -445,9 +445,9 @@ public final class ExcavatorHack extends Hack
 	
 	private static enum Mode
 	{
-		FAST("Fast"),
+		FAST("快速"),
 		
-		LEGIT("Legit");
+		LEGIT("合法");
 		
 		private final String name;
 		
@@ -465,13 +465,13 @@ public final class ExcavatorHack extends Hack
 	
 	private static enum Step
 	{
-		START_POS("Select start position.", true),
+		START_POS("选择起始位置", true),
 		
-		END_POS("Select end position.", true),
+		END_POS("选择结束位置", true),
 		
-		SCAN_AREA("Scanning area...", false),
+		SCAN_AREA("扫描区域...", false),
 		
-		EXCAVATE("Excavating...", false);
+		EXCAVATE("挖掘...", false);
 		
 		private static final Step[] SELECT_POSITION_STEPS =
 			{START_POS, END_POS};

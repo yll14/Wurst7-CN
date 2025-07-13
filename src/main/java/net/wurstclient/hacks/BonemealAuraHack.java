@@ -40,31 +40,27 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 	private final SliderSetting range =
 		new SliderSetting("范围", 4.25, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
-	private final EnumSetting<Mode> mode = new EnumSetting<>("Mode",
-		"\u00a7lFast\u00a7r mode can use bone meal on multiple blocks at once.\n"
-			+ "\u00a7lLegit\u00a7r mode can bypass NoCheat+.",
+	private final EnumSetting<Mode> mode = new EnumSetting<>("模式",
+		"\u00a7l快速\u00a7r 模式可以一次在多个块上使用骨粉\n\u00a7l合法\u00a7r模式可以绕过 NoCheat",
 		Mode.values(), Mode.FAST);
-	
+
 	private final EnumSetting<AutomationLevel> automationLevel =
-		new EnumSetting<>("Automation",
-			"How much of the bone-mealing process to automate.\n"
-				+ "\u00a7lRight Click\u00a7r simply right clicks plants with the bone meal in your hand.\n"
-				+ "\u00a7lHotbar\u00a7r selects bone meal in your hotbar and then uses it on plants.\n"
-				+ "\u00a7lInventory\u00a7r finds bone meal in your inventory, moves it to your hotbar and then uses it.",
+		new EnumSetting<>("自动化",
+			"要自动化多少骨粉过程\n\u00a7l右键\u00a7r 只需右键点击手里有骨粉的植物\n\u00a7l快捷栏\u00a7r 在快捷栏中选择骨粉\n\u00a7l背包\u00a7r 在物品栏中找到骨粉将他它移动到快捷栏",
 			AutomationLevel.values(), AutomationLevel.RIGHT_CLICK);
 	
 	private final CheckboxSetting saplings =
-		new CheckboxSetting("Saplings", true);
+		new CheckboxSetting("树苗", true);
 	
-	private final CheckboxSetting crops = new CheckboxSetting("Crops",
-		"Wheat, carrots, potatoes and beetroots.", true);
+	private final CheckboxSetting crops = new CheckboxSetting("庄稼",
+		"小麦、胡萝卜、土豆和甜菜根", true);
 	
 	private final CheckboxSetting stems =
-		new CheckboxSetting("Stems", "Pumpkins and melons.", true);
+		new CheckboxSetting("茎类", "南瓜和西瓜", true);
 	
-	private final CheckboxSetting cocoa = new CheckboxSetting("Cocoa", true);
+	private final CheckboxSetting cocoa = new CheckboxSetting("可可", true);
 	
-	private final CheckboxSetting other = new CheckboxSetting("Other", false);
+	private final CheckboxSetting other = new CheckboxSetting("其它", false);
 	
 	public BonemealAuraHack()
 	{
@@ -232,8 +228,8 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 	
 	private enum Mode
 	{
-		FAST("Fast"),
-		LEGIT("Legit");
+		FAST("快速"),
+		LEGIT("合法");
 		
 		private final String name;
 		
@@ -251,9 +247,9 @@ public final class BonemealAuraHack extends Hack implements HandleInputListener
 	
 	private enum AutomationLevel
 	{
-		RIGHT_CLICK("Right Click", 0),
-		HOTBAR("Hotbar", 9),
-		INVENTORY("Inventory", 36);
+		RIGHT_CLICK("右键", 0),
+		HOTBAR("快捷栏", 9),
+		INVENTORY("背包", 36);
 		
 		private final String name;
 		private final int maxInvSlot;

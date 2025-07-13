@@ -60,13 +60,13 @@ public final class EditBookOffersScreen extends Screen
 		
 		addDrawableChild(
 			ButtonWidget
-				.builder(Text.literal("Add"),
+				.builder(Text.literal("添加"),
 					b -> client
 						.setScreen(new AddBookOfferScreen(this, bookOffers)))
 				.dimensions(width / 2 - 154, height - 56, 100, 20).build());
 		
 		addDrawableChild(
-			editButton = ButtonWidget.builder(Text.literal("Edit"), b -> {
+			editButton = ButtonWidget.builder(Text.literal("编辑"), b -> {
 				BookOffer selected = listGui.getSelectedOffer();
 				if(selected == null)
 					return;
@@ -77,24 +77,24 @@ public final class EditBookOffersScreen extends Screen
 		editButton.active = false;
 		
 		addDrawableChild(
-			removeButton = ButtonWidget.builder(Text.literal("Remove"), b -> {
+			removeButton = ButtonWidget.builder(Text.literal("移除"), b -> {
 				bookOffers
 					.remove(bookOffers.indexOf(listGui.getSelectedOffer()));
 				client.setScreen(EditBookOffersScreen.this);
 			}).dimensions(width / 2 + 54, height - 56, 100, 20).build());
 		removeButton.active = false;
 		
-		addDrawableChild(ButtonWidget.builder(Text.literal("Reset to Defaults"),
+		addDrawableChild(ButtonWidget.builder(Text.literal("重置为默认值"),
 			b -> client.setScreen(new ConfirmScreen(b2 -> {
 				if(b2)
 					bookOffers.resetToDefaults();
 				client.setScreen(EditBookOffersScreen.this);
-			}, Text.literal("Reset to Defaults"),
-				Text.literal("Are you sure?"))))
+			}, Text.literal("重置为默认值"),
+				Text.literal("是否确定？"))))
 			.dimensions(width - 106, 6, 100, 20).build());
 		
 		addDrawableChild(doneButton = ButtonWidget
-			.builder(Text.literal("Done"), b -> client.setScreen(prevScreen))
+			.builder(Text.literal("完成"), b -> client.setScreen(prevScreen))
 			.dimensions(width / 2 - 100, height - 32, 200, 20).build());
 	}
 	
@@ -220,9 +220,9 @@ public final class EditBookOffersScreen extends Screen
 		private String getPriceText()
 		{
 			if(bookOffer.price() >= 64)
-				return "any price";
+				return "任意价格";
 			
-			return "max " + bookOffer.price();
+			return "价格 " + bookOffer.price();
 		}
 	}
 	

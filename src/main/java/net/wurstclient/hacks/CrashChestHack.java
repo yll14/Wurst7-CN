@@ -35,14 +35,14 @@ public final class CrashChestHack extends Hack
 	{
 		if(!MC.player.getAbilities().creativeMode)
 		{
-			ChatUtils.error("Creative mode only.");
+			ChatUtils.error("仅限创造模式");
 			setEnabled(false);
 			return;
 		}
 		
 		if(!MC.player.getEquippedStack(EquipmentSlot.FEET).isEmpty())
 		{
-			ChatUtils.error("Please clear your shoes slot.");
+			ChatUtils.error("请清理您的靴子槽位");
 			setEnabled(false);
 			return;
 		}
@@ -55,11 +55,11 @@ public final class CrashChestHack extends Hack
 			nbtList.add(new NbtList());
 		nbtCompound.put("www.wurstclient.net", nbtList);
 		stack.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbtCompound));
-		stack.set(DataComponentTypes.CUSTOM_NAME, Text.literal("Copy Me"));
+		stack.set(DataComponentTypes.CUSTOM_NAME, Text.literal("复制我"));
 		
 		// give item
 		MC.player.equipment.put(EquipmentSlot.FEET, stack);
-		ChatUtils.message("Item has been placed in your shoes slot.");
+		ChatUtils.message("物品已放入您的靴子槽中");
 		setEnabled(false);
 	}
 }

@@ -14,8 +14,7 @@ import net.minecraft.entity.passive.TadpoleEntity;
 
 public final class FilterBabiesSetting extends EntityFilterCheckbox
 {
-	private static final String EXCEPTIONS_TEXT = "\n\nThis filter does not"
-		+ " affect baby zombies and other hostile baby mobs.";
+	private static final String EXCEPTIONS_TEXT = "\n\n此过滤器不会影响幼年僵尸和其他敌对幼年生物";
 	
 	public FilterBabiesSetting(String description, boolean checked)
 	{
@@ -43,6 +42,6 @@ public final class FilterBabiesSetting extends EntityFilterCheckbox
 	public static FilterBabiesSetting genericCombat(boolean checked)
 	{
 		return new FilterBabiesSetting(
-			"Won't attack baby pigs, baby villagers, etc.", checked);
+			"不会攻击幼年猪、幼年村民等", checked);
 	}
 }

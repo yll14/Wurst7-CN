@@ -51,12 +51,12 @@ public abstract class GenericContainerScreenMixin
 		if(autoSteal.areButtonsVisible())
 		{
 			addDrawableChild(ButtonWidget
-				.builder(Text.literal("Steal"),
+				.builder(Text.literal("拿取"),
 					b -> autoSteal.steal(this, rows))
 				.dimensions(x + backgroundWidth - 108, y + 4, 50, 12).build());
 			
 			addDrawableChild(ButtonWidget
-				.builder(Text.literal("Store"),
+				.builder(Text.literal("存入"),
 					b -> autoSteal.store(this, rows))
 				.dimensions(x + backgroundWidth - 56, y + 4, 50, 12).build());
 		}

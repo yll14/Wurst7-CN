@@ -14,7 +14,7 @@ public final class WhatToTranslateSetting
 {
 	public WhatToTranslateSetting()
 	{
-		super("Translate", "", WhatToTranslate.values(),
+		super("翻译", "", WhatToTranslate.values(),
 			WhatToTranslate.RECEIVED_MESSAGES);
 	}
 	
@@ -30,9 +30,9 @@ public final class WhatToTranslateSetting
 	
 	public enum WhatToTranslate
 	{
-		RECEIVED_MESSAGES("Received messages", true, false),
-		SENT_MESSAGES("Sent messages", false, true),
-		BOTH("Both", true, true);
+		RECEIVED_MESSAGES("收到的消息", true, false),
+		SENT_MESSAGES("发送的消息", false, true),
+		BOTH("全部", true, true);
 		
 		private final String name;
 		private final boolean received;

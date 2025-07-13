@@ -139,7 +139,7 @@ public final class PathCmd extends Command
 			.orElse(null);
 		
 		if(entity == null)
-			throw new CmdError("Entity \"" + name + "\" could not be found.");
+			throw new CmdError("找不到实体\"" + name + "\"");
 		
 		return BlockPos.ofFloored(entity.getPos());
 	}

@@ -32,29 +32,25 @@ public final class MassTpaHack extends Hack
 	implements UpdateListener, ChatInputListener
 {
 	private static final Pattern ALLOWED_COMMANDS =
-		Pattern.compile("^/+[a-zA-Z0-9_\\-]+$");
+		Pattern.compile("^/+[\u0000-\uFFFF_\\-]+$");
 	
 	private final TextFieldSetting commandSetting =
-		new TextFieldSetting("Command",
-			"The command to use for teleporting.\n"
-				+ "Examples: /tp, /tpa, /tpahere, /tpo",
+		new TextFieldSetting("命令",
+			"用于传送的命令\n示例：/tp、/tpa、/tpahere、/tpo",
 			"/tpa",
 			s -> s.length() < 64 && ALLOWED_COMMANDS.matcher(s).matches());
 	
-	private final SliderSetting delay = new SliderSetting("Delay",
-		"The delay between each teleportation request.", 20, 1, 200, 1,
-		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
+	private final SliderSetting delay = new SliderSetting("延迟",
+		"每个传送请求之间的延迟", 20, 1, 200, 1,
+		ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final CheckboxSetting ignoreErrors =
-		new CheckboxSetting("Ignore errors",
-			"Whether to ignore messages from the server telling you that the"
-				+ " teleportation command isn't valid or that you don't have"
-				+ " permission to use it.",
+		new CheckboxSetting("忽略错误",
+			"是否忽略来自服务器的消息，告诉您传送命令无效或您无权使用它",
 			false);
 	
 	private final CheckboxSetting stopWhenAccepted = new CheckboxSetting(
-		"Stop when accepted", "Whether to stop sending more teleportation"
-			+ " requests when someone accepts one of them.",
+		"接受时停止", "当有人接受其中一个传送请求时，是否停止发送更多传送请求",
 		true);
 	
 	private final Random random = new Random();
@@ -105,7 +101,7 @@ public final class MassTpaHack extends Hack
 		
 		if(players.isEmpty())
 		{
-			ChatUtils.error("Couldn't find any players.");
+			ChatUtils.error("找不到任何玩家");
 			setEnabled(false);
 		}
 	}

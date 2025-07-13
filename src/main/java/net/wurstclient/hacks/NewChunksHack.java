@@ -46,31 +46,31 @@ public final class NewChunksHack extends Hack
 	private final NewChunksShowSetting show = new NewChunksShowSetting();
 	
 	private final CheckboxSetting showReasons = new CheckboxSetting(
-		"Show reasons",
-		"Highlights the block that caused each chunk to be marked as new/old.",
+		"显示原因",
+		"高亮显示导致每个数据块被标记为新/旧区块数据",
 		false);
 	
 	private final CheckboxSetting showCounter =
-		new CheckboxSetting("Show counter",
-			"Shows the number of new/old chunks found so far.", false);
+		new CheckboxSetting("显示数量",
+			"显示到目前为止找到的新/旧区块的数量。", false);
 	
 	private final SliderSetting altitude =
-		new SliderSetting("Altitude", 0, -64, 320, 1, ValueDisplay.INTEGER);
+		new SliderSetting("高度", 0, -64, 320, 1, ValueDisplay.INTEGER);
 	
 	private final SliderSetting drawDistance =
-		new SliderSetting("Draw distance", 32, 8, 64, 1, ValueDisplay.INTEGER);
+		new SliderSetting("绘制距离", 32, 8, 64, 1, ValueDisplay.INTEGER);
 	
-	private final SliderSetting opacity = new SliderSetting("Opacity", 0.75,
+	private final SliderSetting opacity = new SliderSetting("不透明度", 0.75,
 		0.1, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final ColorSetting newChunksColor =
-		new ColorSetting("New chunks color", Color.RED);
+		new ColorSetting("新区块颜色", Color.RED);
 	
 	private final ColorSetting oldChunksColor =
-		new ColorSetting("Old chunks color", Color.BLUE);
+		new ColorSetting("旧区块颜色", Color.BLUE);
 	
-	private final CheckboxSetting logChunks = new CheckboxSetting("Log chunks",
-		"Writes to the log file when a new/old chunk is found.", false);
+	private final CheckboxSetting logChunks = new CheckboxSetting("记录区块",
+		"找到新/旧区块时写入日志文件", false);
 	
 	private final Set<ChunkPos> newChunks =
 		Collections.synchronizedSet(new HashSet<>());
@@ -184,7 +184,7 @@ public final class NewChunksHack extends Hack
 			return;
 		
 		WorldChunk chunk = MC.world.getChunk(x, z);
-		new Thread(() -> checkLoadedChunk(chunk), "NewChunks " + chunk.getPos())
+		new Thread(() -> checkLoadedChunk(chunk), "新区块 " + chunk.getPos())
 			.start();
 	}
 	
@@ -218,7 +218,7 @@ public final class NewChunksHack extends Hack
 					oldChunks.add(chunkPos);
 					oldChunkReasons.add(pos);
 					if(logChunks.isChecked())
-						System.out.println("old chunk at " + chunkPos);
+						System.out.println("旧区块位于 " + chunkPos);
 					return;
 				}
 				
@@ -245,7 +245,7 @@ public final class NewChunksHack extends Hack
 		newChunks.add(chunkPos);
 		newChunkReasons.add(pos);
 		if(logChunks.isChecked())
-			System.out.println("new chunk at " + chunkPos);
+			System.out.println("新区块位于 " + chunkPos);
 	}
 	
 	@Override

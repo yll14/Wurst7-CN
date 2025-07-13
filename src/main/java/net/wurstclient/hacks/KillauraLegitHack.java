@@ -49,28 +49,21 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 		new AttackSpeedSliderSetting();
 	
 	private final SliderSetting speedRandMS =
-		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+		new SliderSetting("速度随机化",
+			"通过改变攻击之间的延迟来帮助您绕过反作弊插件",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "off"));
+				.withSuffix("ms").withLabel(0, "关闭"));
 	
 	private final SliderSetting rotationSpeed =
-		new SliderSetting("Rotation Speed", 600, 10, 3600, 10,
+		new SliderSetting("转头速度", 600, 10, 3600, 10,
 			ValueDisplay.DEGREES.withSuffix("/s"));
 	
-	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+	private final EnumSetting<Priority> priority = new EnumSetting<>("优先权",
+		"确定首先攻击哪个实体\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l角度+距离\u00a7r - 角度和距离的混合体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
 		Priority.values(), Priority.ANGLE);
-	
-	private final SliderSetting fov = new SliderSetting("FOV",
-		"Field Of View - how far away from your crosshair an entity can be before it's ignored.\n"
-			+ "360\u00b0 = entities can be attacked all around you.",
+
+	private final SliderSetting fov = new SliderSetting("视角范围",
+		"视野 - 实体在被忽略之前可以离您的准星多远\n360° = 实体可以攻击您周围的所有实体",
 		360, 30, 360, 10, ValueDisplay.DEGREES);
 	
 	private final SwingHandSetting swingHand =
@@ -78,8 +71,8 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 			SwingHandSetting.genericCombatDescription(this), SwingHand.CLIENT);
 	
 	private final CheckboxSetting damageIndicator = new CheckboxSetting(
-		"Damage indicator",
-		"Renders a colored box within the target, inversely proportional to its remaining health.",
+		"伤害指示器",
+		"在目标中渲染一个彩色框，与其剩余生命值成反比",
 		true);
 	
 	// same filters as in Killaura, but with stricter defaults
@@ -282,13 +275,13 @@ public final class KillauraLegitHack extends Hack implements UpdateListener,
 	
 	private enum Priority
 	{
-		DISTANCE("Distance", e -> MC.player.squaredDistanceTo(e)),
+		DISTANCE("距离", e -> MC.player.squaredDistanceTo(e)),
 		
-		ANGLE("Angle",
+		ANGLE("角度",
 			e -> RotationUtils
 				.getAngleToLookVec(e.getBoundingBox().getCenter())),
 		
-		HEALTH("Health", e -> e instanceof LivingEntity
+		HEALTH("血量", e -> e instanceof LivingEntity
 			? ((LivingEntity)e).getHealth() : Integer.MAX_VALUE);
 		
 		private final String name;

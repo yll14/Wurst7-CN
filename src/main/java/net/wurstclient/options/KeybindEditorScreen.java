@@ -33,7 +33,7 @@ public final class KeybindEditorScreen extends Screen
 		super(Text.literal(""));
 		this.prevScreen = prevScreen;
 		
-		key = "NONE";
+		key = "无";
 		oldKey = null;
 		oldCommands = null;
 	}
@@ -52,15 +52,15 @@ public final class KeybindEditorScreen extends Screen
 	public void init()
 	{
 		addDrawableChild(ButtonWidget
-			.builder(Text.literal("Change Key"),
+			.builder(Text.literal("更改快捷键"),
 				b -> client.setScreen(new PressAKeyScreen(this)))
 			.dimensions(width / 2 - 100, 60, 200, 20).build());
 		
-		addDrawableChild(ButtonWidget.builder(Text.literal("Save"), b -> save())
+		addDrawableChild(ButtonWidget.builder(Text.literal("保存"), b -> save())
 			.dimensions(width / 2 - 100, height / 4 + 72, 200, 20).build());
 		
 		addDrawableChild(ButtonWidget
-			.builder(Text.literal("Cancel"), b -> client.setScreen(prevScreen))
+			.builder(Text.literal("取消"), b -> client.setScreen(prevScreen))
 			.dimensions(width / 2 - 100, height / 4 + 96, 200, 20).build());
 		
 		commandField = new TextFieldWidget(textRenderer, width / 2 - 100, 100,
@@ -95,13 +95,13 @@ public final class KeybindEditorScreen extends Screen
 		float partialTicks)
 	{
 		context.drawCenteredTextWithShadow(textRenderer,
-			(oldKey != null ? "Edit" : "Add") + " Keybind", width / 2, 20,
+			(oldKey != null ? "编辑" : "添加") + " 快捷键", width / 2, 20,
 			Colors.WHITE);
 		
 		context.drawTextWithShadow(textRenderer,
-			"Key: " + key.replace("key.keyboard.", ""), width / 2 - 100, 47,
+			"键：" + key.replace("key.keyboard.", ""), width / 2 - 100, 47,
 			WurstColors.VERY_LIGHT_GRAY);
-		context.drawTextWithShadow(textRenderer, "Commands (separated by ';')",
+		context.drawTextWithShadow(textRenderer, "命令（以 ';' 分隔）",
 			width / 2 - 100, 87, WurstColors.VERY_LIGHT_GRAY);
 		
 		commandField.render(context, mouseX, mouseY, partialTicks);

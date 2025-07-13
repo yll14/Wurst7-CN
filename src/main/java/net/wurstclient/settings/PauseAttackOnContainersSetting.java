@@ -17,7 +17,7 @@ public final class PauseAttackOnContainersSetting extends CheckboxSetting
 {
 	public PauseAttackOnContainersSetting(boolean checked)
 	{
-		super("Pause on containers",
+		super("在容器上暂停",
 			"description.wurst.setting.generic.pause_attack_on_containers",
 			checked);
 	}

@@ -41,10 +41,8 @@ public final class XRayHack extends Hack implements UpdateListener,
 	SetOpaqueCubeListener, GetAmbientOcclusionLightLevelListener,
 	ShouldDrawSideListener, RenderBlockEntityListener
 {
-	private final BlockListSetting ores = new BlockListSetting("Ores",
-		"A list of blocks that X-Ray will show. They don't have to be just ores"
-			+ " - you can add any block you want.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
+	private final BlockListSetting ores = new BlockListSetting("矿石",
+		"X-Ray将显示的方块列表，它们不一定是矿石 - 您可以添加任何您想要的方块\n\n更改此设置时，请重新启动X-Ray",
 		"minecraft:amethyst_cluster", "minecraft:ancient_debris",
 		"minecraft:anvil", "minecraft:beacon", "minecraft:bone_block",
 		"minecraft:bookshelf", "minecraft:brewing_stand",
@@ -78,17 +76,13 @@ public final class XRayHack extends Hack implements UpdateListener,
 		"minecraft:water");
 	
 	private final CheckboxSetting onlyExposed = new CheckboxSetting(
-		"Only show exposed",
-		"Only shows ores that would be visible in caves. This can help against"
-			+ " anti-X-Ray plugins.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
+		"只显示暴露",
+		"仅显示洞穴中可见的矿石，这有助于绕过反X-Ray\n\n更改此设置时，请重新启动X-Ray",
 		false);
 	
-	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"Opacity of non-ore blocks when X-Ray is enabled.\n\n"
-			+ "Does not work when Sodium is installed.\n\n"
-			+ "Remember to restart X-Ray when changing this setting.",
-		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "off"));
+	private final SliderSetting opacity = new SliderSetting("不透明度",
+		"启用X-Ray时非矿石块的不透明度\n\n安装钠时不起作用\n\n更改此设置时请重新启动X-Ray",
+		0, 0, 0.99, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "关闭"));
 	
 	private final String optiFineWarning;
 	private final String renderName =
@@ -243,7 +237,7 @@ public final class XRayHack extends Hack implements UpdateListener,
 		Pattern optifine = Pattern.compile("opti(?:fine|fabric).*");
 		
 		if(mods.anyMatch(optifine.asPredicate()))
-			return "OptiFine is installed. X-Ray will not work properly!";
+			return "OptiFine已安装，X-Ray将无法正常工作！";
 		
 		return null;
 	}

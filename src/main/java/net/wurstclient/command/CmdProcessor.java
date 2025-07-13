@@ -107,20 +107,20 @@ public final class CmdProcessor implements ChatOutputListener
 		public void printToChat()
 		{
 			String cmdName = input.split(" ")[0];
-			ChatUtils.error("Unknown command: ." + cmdName);
+			ChatUtils.error("位置命令：." + cmdName);
 			
 			StringBuilder helpMsg = new StringBuilder();
 			
 			if(input.startsWith("/"))
 			{
-				helpMsg.append("Use \".say " + input + "\"");
-				helpMsg.append(" to send it as a chat command.");
+				helpMsg.append("使用 \".say " + input + "\"");
+				helpMsg.append(" 将其作为聊天命令发送");
 				
 			}else
 			{
-				helpMsg.append("Type \".help\" for a list of commands or ");
+				helpMsg.append("输入 \".help\" 查看命令列表或 ");
 				helpMsg.append("\".say ." + input + "\"");
-				helpMsg.append(" to send it as a chat message.");
+				helpMsg.append(" 将其作为聊天消息发送。");
 			}
 			
 			ChatUtils.message(helpMsg.toString());

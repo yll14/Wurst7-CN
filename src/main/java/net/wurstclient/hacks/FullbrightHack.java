@@ -24,17 +24,16 @@ import net.wurstclient.settings.SliderSetting.ValueDisplay;
 	"FulLightness", "full lightness", "FullGamma", "full gamma"})
 public final class FullbrightHack extends Hack implements UpdateListener
 {
-	private final EnumSetting<Method> method = new EnumSetting<>("Method",
-		"\u00a7lGamma\u00a7r works by setting your brightness slider beyond 100%. Incompatible with shader packs.\n\n"
-			+ "\u00a7lNight Vision\u00a7r works by applying the night vision effect. This \u00a7ousually\u00a7r works with shader packs.",
+	private final EnumSetting<Method> method = new EnumSetting<>("模式",
+		"\u00a7l伽马覆写\u00a7r 将亮度滑块设置为 100% 以上\n\n\u00a7l夜视效果\u00a7r 通过应用夜视效果来工作",
 		Method.values(), Method.GAMMA);
 	
-	private final CheckboxSetting fade = new CheckboxSetting("Fade",
-		"Slowly fades between brightness and darkness.", true);
+	private final CheckboxSetting fade = new CheckboxSetting("淡出",
+		"在光明与黑暗之间慢慢消失", true);
 	
 	private final SliderSetting defaultGamma = new SliderSetting(
-		"Default brightness",
-		"Fullbright will set your brightness slider back to this value when you turn it off.",
+		"默认亮度",
+		"当您关闭黑暗视觉时，它会将亮度滑块设置回此值",
 		0.5, 0, 1, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private boolean wasGammaChanged;
@@ -176,8 +175,8 @@ public final class FullbrightHack extends Hack implements UpdateListener
 	
 	private static enum Method
 	{
-		GAMMA("Gamma"),
-		NIGHT_VISION("Night Vision");
+		GAMMA("伽马覆写"),
+		NIGHT_VISION("夜视效果");
 		
 		private final String name;
 		

@@ -155,14 +155,14 @@ public final class AddBookOfferScreen extends Screen
 		priceMinusButton.active = false;
 		
 		addDrawableChild(
-			addButton = ButtonWidget.builder(Text.literal("Add"), b -> {
+			addButton = ButtonWidget.builder(Text.literal("添加"), b -> {
 				bookOffers.add(offerToAdd);
 				client.setScreen(prevScreen);
 			}).dimensions(width / 2 - 102, height - 28, 100, 20).build());
 		addButton.active = false;
 		
 		addDrawableChild(cancelButton = ButtonWidget
-			.builder(Text.literal("Cancel"), b -> client.setScreen(prevScreen))
+			.builder(Text.literal("取消"), b -> client.setScreen(prevScreen))
 			.dimensions(width / 2 + 2, height - 28, 100, 20).build());
 	}
 	
@@ -281,7 +281,7 @@ public final class AddBookOfferScreen extends Screen
 		
 		TextRenderer tr = client.textRenderer;
 		String titleText =
-			"Available Books (" + listGui.children().size() + ")";
+			"可用书籍（" + listGui.children().size() + "）";
 		context.drawCenteredTextWithShadow(tr, titleText, width / 2, 12,
 			Colors.WHITE);
 		
@@ -293,15 +293,15 @@ public final class AddBookOfferScreen extends Screen
 		
 		matrixStack.translate(width / 2 - 100, 0);
 		
-		context.drawTextWithShadow(tr, "Level:", 0, height - 72,
+		context.drawTextWithShadow(tr, "等级：", 0, height - 72,
 			WurstColors.VERY_LIGHT_GRAY);
-		context.drawTextWithShadow(tr, "Max price:", 0, height - 56,
+		context.drawTextWithShadow(tr, "价格：", 0, height - 56,
 			WurstColors.VERY_LIGHT_GRAY);
 		
 		if(alreadyAdded && offerToAdd != null)
 		{
 			String errorText = offerToAdd.getEnchantmentNameWithLevel()
-				+ " is already on your list!";
+				+ " 已经在列表中！";
 			context.drawTextWithShadow(tr, errorText, 0, height - 40,
 				WurstColors.LIGHT_RED);
 		}
@@ -342,7 +342,7 @@ public final class AddBookOfferScreen extends Screen
 				bookOffer.getEnchantmentEntry().get();
 			
 			int maxLevel = enchantment.value().getMaxLevel();
-			String levels = maxLevel + (maxLevel == 1 ? " level" : " levels");
+			String levels = maxLevel + (" 级");
 			
 			return Text.translatable("narrator.select",
 				"Enchantment " + bookOffer.getEnchantmentName() + ", ID "
@@ -387,7 +387,7 @@ public final class AddBookOfferScreen extends Screen
 				Colors.LIGHT_GRAY, false);
 			
 			int maxLevel = enchantment.value().getMaxLevel();
-			String levels = maxLevel + (maxLevel == 1 ? " level" : " levels");
+			String levels = maxLevel + (" 级");
 			context.drawText(tr, levels, x + 28, y + 18, Colors.LIGHT_GRAY,
 				false);
 		}

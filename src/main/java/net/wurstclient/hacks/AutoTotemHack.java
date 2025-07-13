@@ -26,17 +26,16 @@ import net.wurstclient.util.InventoryUtils;
 public final class AutoTotemHack extends Hack implements UpdateListener
 {
 	private final CheckboxSetting showCounter = new CheckboxSetting(
-		"Show totem counter", "Displays the number of totems you have.", true);
+		"显示图腾计数器", "显示您拥有的图腾数量", true);
 	
-	private final SliderSetting delay = new SliderSetting("Delay",
-		"Amount of ticks to wait before equipping the next totem.", 0, 0, 20, 1,
+	private final SliderSetting delay = new SliderSetting("延迟",
+		"装备下一个图腾之前要等待的刻数", 0, 0, 20, 1,
 		ValueDisplay.INTEGER);
 	
-	private final SliderSetting health = new SliderSetting("Health",
-		"Won't equip a totem until your health reaches this value or falls"
-			+ " below it.\n" + "0 = always active",
-		0, 0, 10, 0.5, ValueDisplay.DECIMAL.withSuffix(" hearts")
-			.withLabel(1, "1 heart").withLabel(0, "ignore"));
+	private final SliderSetting health = new SliderSetting("血量",
+		"在你的生命值达到此值或低于此值之前不会装备图腾\n0 = 始终激活",
+		0, 0, 10, 0.5, ValueDisplay.DECIMAL.withSuffix(" 颗心")
+			.withLabel(0, "忽略"));
 	
 	private int nextTickSlot;
 	private int totems;
@@ -57,11 +56,8 @@ public final class AutoTotemHack extends Hack implements UpdateListener
 	{
 		if(!showCounter.isChecked())
 			return getName();
-		
-		if(totems == 1)
-			return getName() + " [1 totem]";
-		
-		return getName() + " [" + totems + " totems]";
+
+		return getName() + " [" + totems + " 图腾]";
 	}
 	
 	@Override

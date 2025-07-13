@@ -50,12 +50,12 @@ public final class ChooseNameScreen extends Screen
 		addSelectableChild(nameField);
 		setFocused(nameField);
 		
-		doneButton = ButtonWidget.builder(Text.literal("Done"), b -> done())
+		doneButton = ButtonWidget.builder(Text.literal("完成"), b -> done())
 			.dimensions(middleX - 75, middleY + 38, 150, 20).build();
 		addDrawableChild(doneButton);
 		
 		cancelButton =
-			ButtonWidget.builder(Text.literal("Cancel"), b -> cancel())
+			ButtonWidget.builder(Text.literal("取消"), b -> cancel())
 				.dimensions(middleX - 50, middleY + 62, 100, 15).build();
 		addDrawableChild(cancelButton);
 	}

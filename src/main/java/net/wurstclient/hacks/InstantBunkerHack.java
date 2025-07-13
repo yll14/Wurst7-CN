@@ -57,7 +57,7 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 		
 		if(!MC.player.isOnGround())
 		{
-			ChatUtils.error("Can't build this in mid-air.");
+			ChatUtils.error("不能在半空中建造这个");
 			setEnabled(false);
 			return;
 		}
@@ -66,13 +66,13 @@ public final class InstantBunkerHack extends Hack implements UpdateListener
 		
 		if(!(stack.getItem() instanceof BlockItem))
 		{
-			ChatUtils.error("You must have blocks in the main hand.");
+			ChatUtils.error("主手必须有方块");
 			setEnabled(false);
 			return;
 		}
 		
 		if(stack.getCount() < 57 && !MC.player.getAbilities().creativeMode)
-			ChatUtils.warning("Not enough blocks. Bunker may be incomplete.");
+			ChatUtils.warning("没有足够的方块，自闭小屋可能不完整");
 		
 		// get start pos and facings
 		BlockPos startPos = BlockPos.ofFloored(MC.player.getPos());

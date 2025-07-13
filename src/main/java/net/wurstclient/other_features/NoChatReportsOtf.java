@@ -38,7 +38,7 @@ public final class NoChatReportsOtf extends OtherFeature
 	implements UpdateListener, ChatInputListener
 {
 	private final CheckboxSetting disableSignatures =
-		new CheckboxSetting("Disable signatures", true)
+		new CheckboxSetting("禁用签名", true)
 		{
 			@Override
 			public void update()
@@ -49,7 +49,7 @@ public final class NoChatReportsOtf extends OtherFeature
 	
 	public NoChatReportsOtf()
 	{
-		super("NoChatReports", "description.wurst.other_feature.nochatreports");
+		super("禁用聊天举报", "description.wurst.other_feature.nochatreports");
 		addSetting(disableSignatures);
 		
 		ClientLoginConnectionEvents.INIT.register(this::onLoginStart);
@@ -100,7 +100,7 @@ public final class NoChatReportsOtf extends OtherFeature
 			Text.literal("Original message: ").append(originalText));
 		
 		ChatUtils.component(Text.literal(
-			"The server is refusing to let you chat without enabling chat reports. Click \u00a7nhere\u00a7r to learn more.")
+			"服务器拒绝让您在不启用聊天报告的情况下聊天，单击\u00a7n这里\u00a7r了解更多信息")
 			.styled(
 				s -> s.withClickEvent(clickEvent).withHoverEvent(hoverEvent)));
 	}

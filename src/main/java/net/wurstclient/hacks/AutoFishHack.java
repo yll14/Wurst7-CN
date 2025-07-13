@@ -46,12 +46,12 @@ public final class AutoFishHack extends Hack
 	
 	private final SliderSetting catchDelay = new SliderSetting("捕获延迟",
 		"自动鱼咬钩后要等多久才会收线", 0, 0, 60,
-		1, ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 Tick"));
+		1, ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final SliderSetting retryDelay = new SliderSetting("重试延迟",
 		"如果抛竿或收竿失败，自动钓鱼将等待以下时间后再尝试重试",
 		15, 0, 100, 1,
-		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 Tick"));
+		ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private final SliderSetting patience = new SliderSetting("耐心",
 		"如果自动钓鱼没有钓到鱼，它会等待多久才收线",

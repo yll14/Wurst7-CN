@@ -39,34 +39,22 @@ public final class TriggerBotHack extends Hack
 		new AttackSpeedSliderSetting();
 	
 	private final SliderSetting speedRandMS =
-		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+		new SliderSetting("速度随机化",
+			"通过改变攻击之间的延迟来帮助您绕过反作弊插件\n\n\u00b1100ms 建议用于 Vulcan\n\n0（关闭）适用于 NoCheat+、AAC、Grim、Verus、Spartan 和 vanilla 服务器",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "off"));
+				.withSuffix("ms").withLabel(0, "关闭"));
 	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
 	private final CheckboxSetting attackWhileBlocking =
-		new CheckboxSetting("Attack while blocking",
-			"Attacks even while you're blocking with a shield or using"
-				+ " items.\n\n"
-				+ "This would not be possible in vanilla and won't work if"
-				+ " \"Simulate mouse click\" is enabled.",
+		new CheckboxSetting("格挡时攻击",
+			"即使在使用盾牌或物品格挡时也会攻击\n\n这在原版中是不可能的，并且不会启用\"模拟鼠标点击\"",
 			false);
 	
 	private final CheckboxSetting simulateMouseClick = new CheckboxSetting(
-		"Simulate mouse click",
-		"Simulates an actual mouse click (or key press) when attacking. Can be"
-			+ " used to trick CPS measuring tools into thinking that you're"
-			+ " attacking manually.\n\n"
-			+ "\u00a7c\u00a7lWARNING:\u00a7r Simulating mouse clicks can lead"
-			+ " to unexpected behavior, like in-game menus clicking themselves."
-			+ " Also, the \"Swing hand\" and \"Attack while blocking\" settings"
-			+ " will not work while this option is enabled.",
+		"模拟鼠标点击",
+		"模拟攻击时真实的鼠标点击（或按键），可用于欺骗 CPS 测量工具，使其误认为您正在手动攻击\n\n\u00a7c\u00a7l警告：\u00a7r模拟鼠标点击可能会导致意外行为，例如游戏内菜单自动点击。此外，启用此选项时，\"挥动手\"和\"格挡时攻击\"设置将不起作用",
 		false);
 	
 	private final EntityFilterList entityFilters =
@@ -76,7 +64,7 @@ public final class TriggerBotHack extends Hack
 	
 	public TriggerBotHack()
 	{
-		super("扳机机器人");
+		super("自动扳机");
 		setCategory(Category.COMBAT);
 		
 		addSetting(range);

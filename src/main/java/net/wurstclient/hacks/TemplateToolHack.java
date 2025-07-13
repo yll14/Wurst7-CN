@@ -329,9 +329,9 @@ public final class TemplateToolHack extends Hack
 	{
 		String message;
 		if(step.doesSelectPos() && step.getPos() != null)
-			message = "Press enter to confirm, or select a different position.";
+			message = "按 Enter 确认，或选择其他位置";
 		else if(step == Step.FILE_NAME && file != null && file.exists())
-			message = "WARNING: This file already exists.";
+			message = "警告：此文件已存在";
 		else
 			message = step.getMessage();
 		
@@ -383,7 +383,7 @@ public final class TemplateToolHack extends Hack
 			save.print(JsonUtils.PRETTY_GSON.toJson(json));
 			
 			// show success message
-			MutableText message = Text.literal("Saved template as ");
+			MutableText message = Text.literal("将模板另存为 ");
 			ClickEvent event =
 				new ClickEvent.OpenFile(file.getParentFile().getAbsolutePath());
 			MutableText link = Text.literal(file.getName())
@@ -396,7 +396,7 @@ public final class TemplateToolHack extends Hack
 			e.printStackTrace();
 			
 			// show error message
-			ChatUtils.error("File could not be saved.");
+			ChatUtils.error("无法保存文件");
 		}
 		
 		// disable TemplateTool

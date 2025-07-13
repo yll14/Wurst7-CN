@@ -21,7 +21,7 @@ public abstract class AbstractListEditButton extends Component
 	private static final ClickGui GUI = WURST.getGui();
 	private static final TextRenderer TR = MC.textRenderer;
 	
-	private final String buttonText = "Edit...";
+	private final String buttonText = "编辑";
 	private final int buttonWidth = TR.getWidth(buttonText);
 	
 	protected abstract void openScreen();

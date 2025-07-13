@@ -11,19 +11,19 @@ import net.minecraft.util.math.BlockPos;
 
 public enum Step
 {
-	START_POS("Select start position.", true),
+	START_POS("选择起始位置", true),
 	
-	END_POS("Select end position.", true),
+	END_POS("选择结束位置", true),
 	
-	SCAN_AREA("Scanning area...", false),
+	SCAN_AREA("扫描区域...", false),
 	
-	FIRST_BLOCK("Select the first block to be placed by AutoBuild.", true),
+	FIRST_BLOCK("选择要由自动建造放置的第一个方块", true),
 	
-	CREATE_TEMPLATE("Creating template...", false),
+	CREATE_TEMPLATE("创建模板...", false),
 	
-	FILE_NAME("Choose a name for this template.", false),
+	FILE_NAME("为此模板选择一个名称", false),
 	
-	SAVE_FILE("Saving file...", false);
+	SAVE_FILE("保存文件...", false);
 	
 	public static final Step[] SELECT_POSITION_STEPS =
 		{START_POS, END_POS, FIRST_BLOCK};

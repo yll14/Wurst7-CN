@@ -19,16 +19,13 @@ import net.wurstclient.settings.CheckboxSetting;
 public final class TranslationsOtf extends OtherFeature
 {
 	private final CheckboxSetting forceEnglish = new CheckboxSetting(
-		"Force English",
-		"Displays the Wurst Client in English, even if Minecraft is set to a different language.",
+		"强制英语",
+		"即使Minecraft设置为其他语言，也会以英语显示Wurst客户端",
 		true);
 	
 	public TranslationsOtf()
 	{
-		super("Translations", "Allows text in Wurst to be displayed"
-			+ " in other languages than English. It will use the same language"
-			+ " that Minecraft is set to.\n\n"
-			+ "This is an experimental feature!");
+		super("翻译", "允许Wurst中的文本以英语以外的其他语言显示，它将使用与Minecraft相同的语言设置\n\n这是一个实验性功能！");
 		addSetting(forceEnglish);
 	}
 	

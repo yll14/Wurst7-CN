@@ -44,17 +44,15 @@ import net.wurstclient.util.chunk.ChunkSearcherCoordinator;
 public final class SearchHack extends Hack
 	implements UpdateListener, RenderListener
 {
-	private final BlockSetting block = new BlockSetting("Block",
-		"The type of block to search for.", "minecraft:diamond_ore", false);
+	private final BlockSetting block = new BlockSetting("方块",
+		"要搜索的方块的类型", "minecraft:diamond_ore", false);
 	private Block lastBlock;
 	
-	private final ChunkAreaSetting area = new ChunkAreaSetting("Area",
-		"The area around the player to search in.\n"
-			+ "Higher values require a faster computer.");
+	private final ChunkAreaSetting area = new ChunkAreaSetting("面积",
+		"玩家周围要搜索的区域");
 	
-	private final SliderSetting limit = new SliderSetting("Limit",
-		"The maximum number of blocks to display.\n"
-			+ "Higher values require a faster computer.",
+	private final SliderSetting limit = new SliderSetting("限制",
+		"要显示的最大方块数",
 		4, 3, 6, 1, ValueDisplay.LOGARITHMIC);
 	private int prevLimit;
 	private boolean notify;
@@ -218,9 +216,8 @@ public final class SearchHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("Search found \u00a7lA LOT\u00a7r of blocks!"
-				+ " To prevent lag, it will only show the closest \u00a76"
-				+ limit.getValueString() + "\u00a7r results.");
+			ChatUtils.warning("为防止滞后，它只会显示最接近的\u00a76 "
+				+ limit.getValueString() + "\u00a7r 个结果");
 			notify = false;
 		}
 		

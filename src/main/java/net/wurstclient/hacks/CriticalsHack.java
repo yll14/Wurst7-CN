@@ -21,10 +21,8 @@ import net.wurstclient.settings.EnumSetting;
 public final class CriticalsHack extends Hack
 	implements PlayerAttacksEntityListener
 {
-	private final EnumSetting<Mode> mode = new EnumSetting<>("Mode",
-		"\u00a7lPacket\u00a7r mode sends packets to server without actually moving you at all.\n\n"
-			+ "\u00a7lMini Jump\u00a7r mode does a tiny jump that is just enough to get a critical hit.\n\n"
-			+ "\u00a7lFull Jump\u00a7r mode makes you jump normally.",
+	private final EnumSetting<Mode> mode = new EnumSetting<>("模式",
+		"\u00a7l数据包\u00a7r模式将数据包发送到服务器，但实际上根本不会移动您\n\n\u00a7l迷你跳跃\u00a7r模式会进行一次微小的跳跃，刚好足以获得暴击\n\n§l\u00a7l完全跳跃\u00a7r模式让您正常跳跃",
 		Mode.values(), Mode.PACKET);
 	
 	public CriticalsHack()
@@ -113,9 +111,9 @@ public final class CriticalsHack extends Hack
 	
 	private enum Mode
 	{
-		PACKET("Packet"),
-		MINI_JUMP("Mini Jump"),
-		FULL_JUMP("Full Jump");
+		PACKET("数据包"),
+		MINI_JUMP("迷你跳跃"),
+		FULL_JUMP("完全跳跃");
 		
 		private final String name;
 		

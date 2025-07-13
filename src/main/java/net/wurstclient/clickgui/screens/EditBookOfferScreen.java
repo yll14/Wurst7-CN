@@ -129,7 +129,7 @@ public final class EditBookOfferScreen extends Screen
 		priceMinusButton.active = false;
 		
 		addDrawableChild(
-			saveButton = ButtonWidget.builder(Text.literal("Save"), b -> {
+			saveButton = ButtonWidget.builder(Text.literal("保存"), b -> {
 				if(offerToSave == null || !offerToSave.isFullyValid())
 					return;
 				
@@ -139,7 +139,7 @@ public final class EditBookOfferScreen extends Screen
 		saveButton.active = false;
 		
 		addDrawableChild(cancelButton = ButtonWidget
-			.builder(Text.literal("Cancel"), b -> client.setScreen(prevScreen))
+			.builder(Text.literal("取消"), b -> client.setScreen(prevScreen))
 			.dimensions(width / 2 + 2, height / 3 * 2, 100, 20).build());
 		
 		updateSelectedOffer(offerToSave);
@@ -262,7 +262,7 @@ public final class EditBookOfferScreen extends Screen
 		matrixStack.pushMatrix();
 		
 		TextRenderer tr = client.textRenderer;
-		String titleText = "Edit Book Offer";
+		String titleText = "修改书籍价格";
 		context.drawCenteredTextWithShadow(tr, titleText, width / 2, 12,
 			Colors.WHITE);
 		
@@ -287,10 +287,10 @@ public final class EditBookOfferScreen extends Screen
 		
 		String price;
 		if(bookOffer.price() >= 64)
-			price = "any price";
+			price = "任意价格";
 		else
 		{
-			price = "max " + bookOffer.price();
+			price = "价格 " + bookOffer.price();
 			RenderUtils.drawItem(context, new ItemStack(Items.EMERALD),
 				x + 28 + tr.getWidth(price), y + 16, false);
 		}
@@ -305,15 +305,15 @@ public final class EditBookOfferScreen extends Screen
 		
 		matrixStack.translate(width / 2 - 100, 112);
 		
-		context.drawTextWithShadow(tr, "Level:", 0, 0,
+		context.drawTextWithShadow(tr, "等级：", 0, 0,
 			WurstColors.VERY_LIGHT_GRAY);
-		context.drawTextWithShadow(tr, "Max price:", 0, 16,
+		context.drawTextWithShadow(tr, "价格：", 0, 16,
 			WurstColors.VERY_LIGHT_GRAY);
 		
 		if(alreadyAdded && offerToSave != null)
 		{
 			String errorText = offerToSave.getEnchantmentNameWithLevel()
-				+ " is already on your list!";
+				+ " 已经在列表中！";
 			context.drawTextWithShadow(tr, errorText, 0, 32,
 				WurstColors.LIGHT_RED);
 		}

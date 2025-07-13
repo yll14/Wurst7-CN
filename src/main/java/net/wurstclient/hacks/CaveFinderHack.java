@@ -46,21 +46,19 @@ import net.wurstclient.util.chunk.ChunkSearcherCoordinator;
 public final class CaveFinderHack extends Hack
 	implements UpdateListener, RenderListener
 {
-	private final ChunkAreaSetting area = new ChunkAreaSetting("Area",
-		"The area around the player to search in.\n"
-			+ "Higher values require a faster computer.");
+	private final ChunkAreaSetting area = new ChunkAreaSetting("面积",
+		"玩家周围要搜索的区域");
 	
-	private final SliderSetting limit = new SliderSetting("Limit",
-		"The maximum number of blocks to display.\n"
-			+ "Higher values require a faster computer.",
+	private final SliderSetting limit = new SliderSetting("限制",
+		"要显示的最大方块数",
 		5, 3, 6, 1, ValueDisplay.LOGARITHMIC);
 	
-	private final ColorSetting color = new ColorSetting("Color",
-		"Caves will be highlighted in this color.", Color.RED);
+	private final ColorSetting color = new ColorSetting("颜色",
+		"洞穴将以这种颜色高亮显示", Color.RED);
 	
-	private final SliderSetting opacity = new SliderSetting("Opacity",
-		"How opaque the highlights should be.\n" + "0 = breathing animation", 0,
-		0, 1, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "breathing"));
+	private final SliderSetting opacity = new SliderSetting("不透明度",
+		"高光的不透明度\n0 = 动态", 0,
+		0, 1, 0.01, ValueDisplay.PERCENTAGE.withLabel(0, "动态"));
 	
 	private int prevLimit;
 	private boolean notify;
@@ -79,7 +77,7 @@ public final class CaveFinderHack extends Hack
 	
 	public CaveFinderHack()
 	{
-		super("洞穴查找器");
+		super("洞穴高亮");
 		setCategory(Category.RENDER);
 		addSetting(area);
 		addSetting(limit);
@@ -213,9 +211,8 @@ public final class CaveFinderHack extends Hack
 			notify = true;
 		else if(notify)
 		{
-			ChatUtils.warning("CaveFinder found \u00a7lA LOT\u00a7r of blocks!"
-				+ " To prevent lag, it will only show the closest \u00a76"
-				+ limit.getValueString() + "\u00a7r results.");
+			ChatUtils.warning("洞穴高亮发现了\u00a7l很多\u00a7r的方块！为了防止延迟，它只会显示最接近的\u00a76"
+				+ limit.getValueString() + "\u00a7r结果");
 			notify = false;
 		}
 		

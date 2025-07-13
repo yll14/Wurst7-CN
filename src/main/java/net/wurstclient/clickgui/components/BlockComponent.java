@@ -109,18 +109,18 @@ public final class BlockComponent extends Component
 		BlockState state = block.getDefaultState();
 		ItemStack stack = new ItemStack(block);
 		
-		String translatedName = stack.isEmpty() ? "\u00a7ounknown block\u00a7r"
+		String translatedName = stack.isEmpty() ? "\u00a7o未知方块\u00a7r"
 			: stack.getName().getString();
-		String tooltip = "\u00a76Name:\u00a7r " + translatedName;
+		String tooltip = "\u00a76名称:\u00a7r " + translatedName;
 		
 		String blockId = setting.getBlockName();
 		tooltip += "\n\u00a76ID:\u00a7r " + blockId;
 		
 		int blockNumber = Block.getRawIdFromState(state);
-		tooltip += "\n\u00a76Block #:\u00a7r " + blockNumber;
+		tooltip += "\n\u00a76方块#:\u00a7r " + blockNumber;
 		
-		tooltip += "\n\n\u00a7e[left-click]\u00a7r to edit";
-		tooltip += "\n\u00a7e[right-click]\u00a7r to reset";
+		tooltip += "\n\n\u00a7e[左键]\u00a7r 修改";
+		tooltip += "\n\u00a7e[右键]\u00a7r 重置";
 		
 		return tooltip;
 	}

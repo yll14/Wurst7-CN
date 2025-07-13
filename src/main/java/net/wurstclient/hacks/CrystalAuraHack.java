@@ -48,33 +48,29 @@ import net.wurstclient.util.RotationUtils;
 public final class CrystalAuraHack extends Hack implements UpdateListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"Determines how far CrystalAura will reach to place and detonate crystals.",
+		"确定水晶光环放置和引爆水晶的距离。",
 		6, 1, 6, 0.05, ValueDisplay.DECIMAL);
 	
 	private final CheckboxSetting autoPlace = new CheckboxSetting(
-		"Auto-place crystals",
-		"When enabled, CrystalAura will automatically place crystals near valid entities.\n"
-			+ "When disabled, CrystalAura will only detonate manually placed crystals.",
+		"自动放置水晶",
+		"启用后，水晶光环会自动将水晶放置在有效实体附近\n禁用后，水晶光环只会引爆手动放置的水晶",
 		true);
 	
 	private final FacingSetting faceBlocks =
-		FacingSetting.withPacketSpam("Face crystals",
-			"Whether or not CrystalAura should face the correct direction when"
-				+ " placing and left-clicking end crystals.\n\n"
-				+ "Slower but can help with anti-cheat plugins.",
+		FacingSetting.withPacketSpam("面朝水晶",
+			"放置和左键点击末端水晶时，水晶光环是否应该朝向正确的方向\n\n速度较慢，但可以帮助反作弊插件",
 			Facing.OFF);
 	
 	private final CheckboxSetting checkLOS = new CheckboxSetting(
 		"检查视线",
-		"Ensures that you don't reach through blocks when placing or left-clicking end crystals.\n\n"
-			+ "Slower but can help with anti-cheat plugins.",
+		"确保你在放置或左键点击末地水晶时不会穿过方块\n\n速度较慢，但可以帮助反作弊插件",
 		false);
 	
 	private final SwingHandSetting swingHand =
 		new SwingHandSetting(this, SwingHand.CLIENT);
 	
 	private final EnumSetting<TakeItemsFrom> takeItemsFrom =
-		new EnumSetting<>("Take items from", "Where to look for end crystals.",
+		new EnumSetting<>("物品来源", "在哪里获取末影水晶",
 			TakeItemsFrom.values(), TakeItemsFrom.INVENTORY);
 	
 	private final EntityFilterList entityFilters =
@@ -313,9 +309,9 @@ public final class CrystalAuraHack extends Hack implements UpdateListener
 	
 	private enum TakeItemsFrom
 	{
-		HOTBAR("Hotbar", 9),
+		HOTBAR("快捷栏", 9),
 		
-		INVENTORY("Inventory", 36);
+		INVENTORY("背包", 36);
 		
 		private final String name;
 		private final int maxInvSlot;

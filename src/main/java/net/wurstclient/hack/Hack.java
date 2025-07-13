@@ -29,7 +29,7 @@ public abstract class Hack extends Feature
 	{
 		this.name = Objects.requireNonNull(name);
 		description = "description.wurst.hack." + name.toLowerCase();
-		addPossibleKeybind(name, "Toggle " + name);
+		addPossibleKeybind(name, "切换 " + name);
 	}
 	
 	@Override
@@ -97,7 +97,7 @@ public abstract class Hack extends Feature
 	@Override
 	public final String getPrimaryAction()
 	{
-		return enabled ? "Disable" : "Enable";
+		return enabled ? "禁用" : "启用";
 	}
 	
 	@Override

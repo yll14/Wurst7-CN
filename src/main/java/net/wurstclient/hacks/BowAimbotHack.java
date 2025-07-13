@@ -43,24 +43,20 @@ import net.wurstclient.util.RotationUtils;
 public final class BowAimbotHack extends Hack
 	implements UpdateListener, RenderListener, GUIRenderListener
 {
-	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lAngle+Dist\u00a7r - A hybrid of Angle and Distance. This is usually the best at figuring out what you want to aim at.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+	private final EnumSetting<Priority> priority = new EnumSetting<>("优先权",
+		"确定首先攻击哪个实体\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l角度+距离\u00a7r - 角度和距离的混合体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
 		Priority.values(), Priority.ANGLE_DIST);
 	
 	private final SliderSetting predictMovement = new SliderSetting(
-		"Predict movement",
-		"Controls the strength of BowAimbot's movement prediction algorithm.",
+		"预测移动",
+		"控制弓箭自瞄的运动预测算法的强度",
 		0.2, 0, 2, 0.01, ValueDisplay.PERCENTAGE);
 	
 	private final EntityFilterList entityFilters =
 		EntityFilterList.genericCombat();
 	
-	private final ColorSetting color = new ColorSetting("ESP color",
-		"Color of the box that BowAimbot draws around the target.", Color.RED);
+	private final ColorSetting color = new ColorSetting("ESP 颜色",
+		"弓箭自瞄在目标周围绘制的框的颜色", Color.RED);
 	
 	private Entity target;
 	private float velocity;
@@ -208,9 +204,9 @@ public final class BowAimbotHack extends Hack
 		
 		String message;
 		if(velocity < 1)
-			message = "Charging: " + (int)(velocity * 100) + "%";
+			message = "锁定：" + (int)(velocity * 100) + "%";
 		else
-			message = "Target Locked";
+			message = "目标已锁定";
 		
 		TextRenderer tr = MC.textRenderer;
 		int msgWidth = tr.getWidth(message);
@@ -229,19 +225,19 @@ public final class BowAimbotHack extends Hack
 	
 	private enum Priority
 	{
-		DISTANCE("Distance", e -> MC.player.squaredDistanceTo(e)),
+		DISTANCE("距离", e -> MC.player.squaredDistanceTo(e)),
 		
-		ANGLE("Angle",
+		ANGLE("角度",
 			e -> RotationUtils
 				.getAngleToLookVec(e.getBoundingBox().getCenter())),
 		
-		ANGLE_DIST("Angle+Dist",
+		ANGLE_DIST("角度+距离",
 			e -> Math
 				.pow(RotationUtils
 					.getAngleToLookVec(e.getBoundingBox().getCenter()), 2)
 				+ MC.player.squaredDistanceTo(e)),
 		
-		HEALTH("Health", e -> e instanceof LivingEntity
+		HEALTH("血量", e -> e instanceof LivingEntity
 			? ((LivingEntity)e).getHealth() : Integer.MAX_VALUE);
 		
 		private final String name;

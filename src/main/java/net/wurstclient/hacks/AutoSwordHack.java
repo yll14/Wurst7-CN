@@ -31,19 +31,16 @@ import net.wurstclient.util.ItemUtils;
 public final class AutoSwordHack extends Hack implements UpdateListener
 {
 	private final EnumSetting<Priority> priority =
-		new EnumSetting<>("Priority", Priority.values(), Priority.SPEED);
+		new EnumSetting<>("优先权", Priority.values(), Priority.SPEED);
 	
 	private final CheckboxSetting switchBack = new CheckboxSetting(
-		"Switch back", "Switches back to the previously selected slot after"
-			+ " \u00a7lRelease time\u00a7r has passed.",
+		"切换回去", "在\u00a7l等待时间\u00a7r过去后切换回之前选择的插槽",
 		true);
 	
-	private final SliderSetting releaseTime = new SliderSetting("Release time",
-		"Time until AutoSword will switch back from the weapon to the"
-			+ " previously selected slot.\n\n"
-			+ "Only works when \u00a7lSwitch back\u00a7r is checked.",
+	private final SliderSetting releaseTime = new SliderSetting("等待时间",
+		"直到自动武器从武器切换回之前选择的插槽\n\n仅在启用\u00a7l切换回去\u00a7r时有效",
 		10, 1, 200, 1,
-		ValueDisplay.INTEGER.withSuffix(" ticks").withLabel(1, "1 tick"));
+		ValueDisplay.INTEGER.withSuffix(" Tick"));
 	
 	private int oldSlot;
 	private int timer;
@@ -191,8 +188,8 @@ public final class AutoSwordHack extends Hack implements UpdateListener
 	
 	private enum Priority
 	{
-		SPEED("Speed (swords)"),
-		DAMAGE("Damage (axes)");
+		SPEED("速度（剑）"),
+		DAMAGE("伤害（斧）");
 		
 		private final String name;
 		

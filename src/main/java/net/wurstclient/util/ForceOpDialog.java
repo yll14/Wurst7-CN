@@ -43,7 +43,7 @@ public class ForceOpDialog extends JDialog
 	
 	public ForceOpDialog(String username)
 	{
-		super((JFrame)null, "ForceOP", false);
+		super((JFrame)null, "强制OP", false);
 		setAlwaysOnTop(true);
 		setSize(512, 248);
 		setResizable(false);
@@ -51,22 +51,22 @@ public class ForceOpDialog extends JDialog
 		setLayout(null);
 		SwingUtils.setExitOnClose(this);
 		
-		addLabel("Password list", 4, 4);
+		addLabel("密码列表", 4, 4);
 		addPwListSelector();
 		addHowToUseButton();
 		
 		addSeparator(4, 56, 498, 4);
 		
-		addLabel("Speed", 4, 64);
+		addLabel("速度", 4, 64);
 		addDelaySelector();
 		addDontWaitCheckbox();
 		
 		addSeparator(4, 132, 498, 4);
 		
-		addLabel("Username: " + username, 4, 140);
-		lPasswords = addLabel("Passwords: error", 4, 160);
-		lTime = addPersistentLabel("Estimated time: error", 4, 180);
-		lAttempts = addPersistentLabel("Attempts: error", 4, 200);
+		addLabel("用户名：" + username, 4, 140);
+		lPasswords = addLabel("密码：错误", 4, 160);
+		lTime = addPersistentLabel("预计时间：错误", 4, 180);
+		lAttempts = addPersistentLabel("尝试次数：错误", 4, 200);
 		addStartButton();
 		
 		updateNumPasswords();
@@ -109,12 +109,12 @@ public class ForceOpDialog extends JDialog
 	
 	private void addPwListSelector()
 	{
-		JRadioButton rbDefaultList = new JRadioButton("default", true);
+		JRadioButton rbDefaultList = new JRadioButton("默认", true);
 		rbDefaultList.setLocation(4, 24);
 		rbDefaultList.setSize(rbDefaultList.getPreferredSize());
 		add(rbDefaultList);
 		
-		JRadioButton rbTXTList = new JRadioButton("TXT file", false);
+		JRadioButton rbTXTList = new JRadioButton("TXT 文件", false);
 		rbTXTList.setLocation(
 			rbDefaultList.getX() + rbDefaultList.getWidth() + 4, 24);
 		rbTXTList.setSize(rbTXTList.getPreferredSize());
@@ -124,7 +124,7 @@ public class ForceOpDialog extends JDialog
 		rbGroup.add(rbDefaultList);
 		rbGroup.add(rbTXTList);
 		
-		JButton bBrowse = new JButton("browse");
+		JButton bBrowse = new JButton("选择");
 		bBrowse.setLocation(rbTXTList.getX() + rbTXTList.getWidth() + 4, 24);
 		bBrowse.setSize(bBrowse.getPreferredSize());
 		bBrowse.setEnabled(rbTXTList.isSelected());
@@ -166,7 +166,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void addHowToUseButton()
 	{
-		JButton bHowTo = new JButton("How to use");
+		JButton bHowTo = new JButton("如何使用");
 		bHowTo.setFont(new Font(bHowTo.getFont().getName(), Font.BOLD, 16));
 		bHowTo.setSize(bHowTo.getPreferredSize());
 		bHowTo.setLocation(506 - bHowTo.getWidth() - 32, 12);
@@ -190,7 +190,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void addDelaySelector()
 	{
-		JLabel lDelay1 = addLabel("Delay between attempts:", 4, 84);
+		JLabel lDelay1 = addLabel("尝试之间的延迟：", 4, 84);
 		
 		spDelay = new JSpinner();
 		spDelay.setToolTipText("<html>"
@@ -208,9 +208,9 @@ public class ForceOpDialog extends JDialog
 	
 	private void addDontWaitCheckbox()
 	{
-		cbDontWait = new JCheckBox("<html>Don't wait for "
-			+ "\"<span style=\"color: red;\"><b>Wrong password!</b></span>\" "
-			+ "messages</html>", false);
+		cbDontWait = new JCheckBox("<html>不要等待 "
+			+ "\"<span style=\"color: red;\"><b>密码错误！</b></span>\" "
+			+ "消息</html>", false);
 		cbDontWait
 			.setToolTipText("Increases the speed but can cause inaccuracy.");
 		cbDontWait.setLocation(4, 104);
@@ -221,7 +221,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void addStartButton()
 	{
-		JButton bStart = new JButton("Start");
+		JButton bStart = new JButton("开始");
 		bStart.setFont(new Font(bStart.getFont().getName(), Font.BOLD, 18));
 		bStart.setLocation(506 - 192 - 12, 144);
 		bStart.setSize(192, 66);
@@ -278,7 +278,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void updatePasswordsLabel()
 	{
-		lPasswords.setText("Passwords: " + numPW);
+		lPasswords.setText("密码：" + numPW);
 		lPasswords.setSize(lPasswords.getPreferredSize());
 	}
 	
@@ -297,7 +297,7 @@ public class ForceOpDialog extends JDialog
 		
 		String timeString = getTimeString(timeMS);
 		
-		lTime.setText("Estimated time: " + timeString);
+		lTime.setText("预计时间：" + timeString);
 		lTime.setSize(lTime.getPreferredSize());
 	}
 	
@@ -318,7 +318,7 @@ public class ForceOpDialog extends JDialog
 	
 	private void updateAttemptsLabel()
 	{
-		lAttempts.setText("Attempts: " + (lastPW + 1) + "/" + numPW);
+		lAttempts.setText("尝试：" + (lastPW + 1) + "/" + numPW);
 		lAttempts.setSize(lAttempts.getPreferredSize());
 	}
 	

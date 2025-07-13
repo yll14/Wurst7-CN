@@ -32,22 +32,22 @@ public final class ChatTranslatorHack extends Hack
 		new WhatToTranslateSetting();
 	
 	private final LanguageSetting playerLanguage =
-		LanguageSetting.withoutAutoDetect("Your language",
+		LanguageSetting.withoutAutoDetect("你的语言",
 			"description.wurst.setting.chattranslator.your_language",
 			Language.ENGLISH);
 	
 	private final LanguageSetting otherLanguage =
-		LanguageSetting.withoutAutoDetect("Other language",
+		LanguageSetting.withoutAutoDetect("其他语言",
 			"description.wurst.setting.chattranslator.other_language",
 			Language.CHINESE_SIMPLIFIED);
 	
 	private final CheckboxSetting autoDetectReceived =
-		new CheckboxSetting("Detect received language",
+		new CheckboxSetting("检测接收的语言",
 			"description.wurst.setting.chattranslator.detect_received_language",
 			true);
 	
 	private final CheckboxSetting autoDetectSent = new CheckboxSetting(
-		"Detect sent language",
+		"检测发送的语言",
 		"description.wurst.setting.chattranslator.detect_sent_language", true);
 	
 	private final FilterOwnMessagesSetting filterOwnMessages =

@@ -52,7 +52,7 @@ public final class EnterProfileNameScreen extends Screen
 		setFocused(valueField);
 		valueField.setFocused(true);
 		
-		doneButton = ButtonWidget.builder(Text.literal("Done"), b -> done())
+		doneButton = ButtonWidget.builder(Text.literal("完成"), b -> done())
 			.dimensions(x1, y2, 200, 20).build();
 		addDrawableChild(doneButton);
 	}
@@ -88,7 +88,7 @@ public final class EnterProfileNameScreen extends Screen
 		float partialTicks)
 	{
 		context.drawCenteredTextWithShadow(client.textRenderer,
-			"Name your new profile", width / 2, 20, Colors.WHITE);
+			"为新配置命名", width / 2, 20, Colors.WHITE);
 		
 		valueField.render(context, mouseX, mouseY, partialTicks);
 		

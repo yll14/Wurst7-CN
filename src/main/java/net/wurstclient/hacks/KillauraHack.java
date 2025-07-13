@@ -43,38 +43,31 @@ public final class KillauraHack extends Hack
 	implements UpdateListener, HandleInputListener, RenderListener
 {
 	private final SliderSetting range = new SliderSetting("范围",
-		"Determines how far Killaura will reach to attack entities.\n"
-			+ "Anything that is further away than the specified value will not be attacked.",
+		"杀戮光环攻击实体的距离\n任何距离超过指定值的东西都不会受到攻击",
 		5, 1, 10, 0.05, ValueDisplay.DECIMAL);
 	
 	private final AttackSpeedSliderSetting speed =
 		new AttackSpeedSliderSetting();
 	
 	private final SliderSetting speedRandMS =
-		new SliderSetting("Speed randomization",
-			"Helps you bypass anti-cheat plugins by varying the delay between"
-				+ " attacks.\n\n" + "\u00b1100ms is recommended for Vulcan.\n\n"
-				+ "0 (off) is fine for NoCheat+, AAC, Grim, Verus, Spartan, and"
-				+ " vanilla servers.",
+		new SliderSetting("速度随机化",
+			"通过改变攻击之间的延迟来帮助您绕过反作弊插件",
 			100, 0, 1000, 50, ValueDisplay.INTEGER.withPrefix("\u00b1")
-				.withSuffix("ms").withLabel(0, "off"));
+				.withSuffix("ms").withLabel(0, "关闭"));
 	
-	private final EnumSetting<Priority> priority = new EnumSetting<>("Priority",
-		"Determines which entity will be attacked first.\n"
-			+ "\u00a7lDistance\u00a7r - Attacks the closest entity.\n"
-			+ "\u00a7lAngle\u00a7r - Attacks the entity that requires the least head movement.\n"
-			+ "\u00a7lHealth\u00a7r - Attacks the weakest entity.",
+	private final EnumSetting<Priority> priority = new EnumSetting<>("优先权",
+		"确定哪个实体将首先受到攻击\n\u00a7l距离\u00a7r - 攻击最近的实体\n\u00a7l角度\u00a7r - 攻击需要最少视角旋转的实体\n\u00a7l血量\u00a7r - 攻击最弱的实体",
 		Priority.values(), Priority.ANGLE);
 	
 	private final SliderSetting fov =
-		new SliderSetting("FOV", 360, 30, 360, 10, ValueDisplay.DEGREES);
+		new SliderSetting("视角范围", 360, 30, 360, 10, ValueDisplay.DEGREES);
 	
 	private final SwingHandSetting swingHand = new SwingHandSetting(
 		SwingHandSetting.genericCombatDescription(this), SwingHand.CLIENT);
 	
 	private final CheckboxSetting damageIndicator = new CheckboxSetting(
-		"Damage indicator",
-		"Renders a colored box within the target, inversely proportional to its remaining health.",
+		"伤害指示器",
+		"在目标中渲染一个彩色框，与其剩余生命值成反比",
 		true);
 	
 	private final PauseAttackOnContainersSetting pauseOnContainers =
@@ -82,8 +75,7 @@ public final class KillauraHack extends Hack
 	
 	private final CheckboxSetting checkLOS =
 		new CheckboxSetting("检查视线",
-			"Ensures that you don't reach through blocks when attacking.\n\n"
-				+ "Slower but can help with anti-cheat plugins.",
+			"确保你在攻击时不会伸手穿过物块\n速度较慢，但可以帮助反作弊插件",
 			false);
 	
 	private final EntityFilterList entityFilters =
@@ -218,13 +210,13 @@ public final class KillauraHack extends Hack
 	
 	private enum Priority
 	{
-		DISTANCE("Distance", e -> MC.player.squaredDistanceTo(e)),
+		DISTANCE("距离", e -> MC.player.squaredDistanceTo(e)),
 		
-		ANGLE("Angle",
+		ANGLE("角度",
 			e -> RotationUtils
 				.getAngleToLookVec(e.getBoundingBox().getCenter())),
 		
-		HEALTH("Health", e -> e instanceof LivingEntity
+		HEALTH("血量", e -> e instanceof LivingEntity
 			? ((LivingEntity)e).getHealth() : Integer.MAX_VALUE);
 		
 		private final String name;

@@ -40,8 +40,7 @@ public final class MobEspHack extends Hack implements UpdateListener,
 	private final EspStyleSetting style = new EspStyleSetting();
 	
 	private final EspBoxSizeSetting boxSize = new EspBoxSizeSetting(
-		"\u00a7lAccurate\u00a7r mode shows the exact hitbox of each mob.\n"
-			+ "\u00a7lFancy\u00a7r mode shows slightly larger boxes that look better.");
+		"\u00a7l精确\u00a7r模式显示每个生物的确切命中框\n\u00a7l花哨\u00a7r模式显示稍大的框，看起来更好");
 	
 	private final EntityFilterList entityFilters =
 		new EntityFilterList(FilterHostileSetting.genericVision(false),

@@ -94,8 +94,7 @@ public final class WurstUpdater implements UpdateListener
 		
 		if(latestVersion == null || latestVersion.isInvalid())
 		{
-			String text = "An error occurred while checking for updates."
-				+ " Click \u00a7nhere\u00a7r to check manually.";
+			String text = "检查更新时出错，请点击\u00a7n这里\u00a7r进行手动检查";
 			String url = baseUrl + "?utm_source=" + utmSource + "&utm_medium="
 				+ utmMedium + "&utm_content=" + currentVersionEncoded
 				+ "+error+checking+updates+chat+message";
