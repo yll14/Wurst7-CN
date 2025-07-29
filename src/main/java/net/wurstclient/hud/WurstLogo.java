@@ -26,7 +26,7 @@ public final class WurstLogo
 		WurstLogoOtf otf = WURST.getOtfs().wurstLogoOtf;
 		if(!otf.isVisible())
 			return;
-		
+
 		String version = getVersionString();
 		TextRenderer tr = WurstClient.MC.textRenderer;
 		
@@ -54,10 +54,7 @@ public final class WurstLogo
 	{
 		String version = "v" + WurstClient.VERSION;
 		version += " MC" + WurstClient.MC_VERSION;
-		
-		if(WURST.getUpdater().isOutdated())
-			version += " (outdated)";
-		
+
 		return version;
 	}
 }

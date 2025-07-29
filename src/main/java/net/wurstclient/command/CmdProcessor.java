@@ -107,7 +107,7 @@ public final class CmdProcessor implements ChatOutputListener
 		public void printToChat()
 		{
 			String cmdName = input.split(" ")[0];
-			ChatUtils.error("位置命令：." + cmdName);
+			ChatUtils.error("未知命令：." + cmdName);
 			
 			StringBuilder helpMsg = new StringBuilder();
 			
@@ -120,7 +120,7 @@ public final class CmdProcessor implements ChatOutputListener
 			{
 				helpMsg.append("输入 \".help\" 查看命令列表或 ");
 				helpMsg.append("\".say ." + input + "\"");
-				helpMsg.append(" 将其作为聊天消息发送。");
+				helpMsg.append(" 将其作为聊天消息发送");
 			}
 			
 			ChatUtils.message(helpMsg.toString());

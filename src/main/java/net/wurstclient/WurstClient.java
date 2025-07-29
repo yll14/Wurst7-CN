@@ -39,8 +39,6 @@ import net.wurstclient.navigator.Navigator;
 import net.wurstclient.other_feature.OtfList;
 import net.wurstclient.other_feature.OtherFeature;
 import net.wurstclient.settings.SettingsFile;
-import net.wurstclient.update.ProblematicResourcePackDetector;
-import net.wurstclient.update.WurstUpdater;
 import net.wurstclient.util.json.JsonException;
 
 public enum WurstClient
@@ -72,8 +70,6 @@ public enum WurstClient
 	
 	private boolean enabled = true;
 	private static boolean guiInitialized;
-	private WurstUpdater updater;
-	private ProblematicResourcePackDetector problematicPackDetector;
 	private Path wurstFolder;
 	
 	public void initialize()
@@ -131,13 +127,7 @@ public enum WurstClient
 		rotationFaker = new RotationFaker();
 		eventManager.add(PreMotionListener.class, rotationFaker);
 		eventManager.add(PostMotionListener.class, rotationFaker);
-		
-		updater = new WurstUpdater();
-		eventManager.add(UpdateListener.class, updater);
-		
-		problematicPackDetector = new ProblematicResourcePackDetector();
-		problematicPackDetector.start();
-		
+
 		Path altsFile = wurstFolder.resolve("alts.encrypted_json");
 		Path encFolder = Encryption.chooseEncryptionFolder();
 		altManager = new AltManager(altsFile, encFolder);
@@ -299,17 +289,7 @@ public enum WurstClient
 			hax.panicHack.onUpdate();
 		}
 	}
-	
-	public WurstUpdater getUpdater()
-	{
-		return updater;
-	}
-	
-	public ProblematicResourcePackDetector getProblematicPackDetector()
-	{
-		return problematicPackDetector;
-	}
-	
+
 	public Path getWurstFolder()
 	{
 		return wurstFolder;
