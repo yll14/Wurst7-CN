@@ -50,20 +50,20 @@ public final class SelectFileScreen extends Screen
 		addSelectableChild(listGui);
 		
 		addDrawableChild(
-			ButtonWidget.builder(Text.literal("Open Folder"), b -> openFolder())
+			ButtonWidget.builder(Text.literal("打开文件夹"), b -> openFolder())
 				.dimensions(8, 8, 100, 20).build());
 		
 		addDrawableChild(ButtonWidget
-			.builder(Text.literal("Reset to Defaults"),
+			.builder(Text.literal("重置为默认值"),
 				b -> askToConfirmReset())
 			.dimensions(width - 108, 8, 100, 20).build());
 		
 		doneButton = addDrawableChild(
-			ButtonWidget.builder(Text.literal("Done"), b -> done())
+			ButtonWidget.builder(Text.literal("完成"), b -> done())
 				.dimensions(width / 2 - 102, height - 48, 100, 20).build());
 		
 		addDrawableChild(
-			ButtonWidget.builder(Text.literal("Cancel"), b -> openPrevScreen())
+			ButtonWidget.builder(Text.literal("取消"), b -> openPrevScreen())
 				.dimensions(width / 2 + 2, height - 48, 100, 20).build());
 	}
 	
@@ -91,12 +91,10 @@ public final class SelectFileScreen extends Screen
 	
 	private void askToConfirmReset()
 	{
-		Text title = Text.literal("Reset Folder");
+		Text title = Text.literal("重置文件夹");
 		
 		Text message = Text
-			.literal("This will empty the '" + setting.getFolder().getFileName()
-				+ "' folder and then re-generate the default files.\n"
-				+ "Are you sure you want to do this?");
+			.literal("这将清空 '" + setting.getFolder().getFileName() + "' 文件夹，然后重新生成默认文件\n你确定要这样做吗？");
 		
 		client.setScreen(new ConfirmScreen(this::confirmReset, title, message));
 	}
@@ -140,7 +138,7 @@ public final class SelectFileScreen extends Screen
 		
 		if(doneButton.isSelected() && !doneButton.active)
 			context.drawTooltip(textRenderer,
-				Arrays.asList(Text.literal("You must first select a file.")),
+				Arrays.asList(Text.literal("您必须首先选择一个文件")),
 				mouseX, mouseY);
 	}
 	
